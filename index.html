@@ -18,7 +18,7 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--paper);color:var(--ink)}
 body{font:400 17px/1.66 var(--serif);-webkit-font-smoothing:antialiased}
-.wrap{max-width:1300px;margin:0 auto;padding:0 40px 96px}
+.wrap{max-width:1440px;margin:0 auto;padding:0 44px 96px}
 
 /* ---- kop ---- */
 header{padding:56px 0 22px;border-bottom:1px solid var(--hair);
@@ -33,7 +33,7 @@ nav button{background:none;border:0;padding:0 0 5px;cursor:pointer;
 nav button:hover{color:var(--ink)}
 nav button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--acc)}
 
-.grid{display:grid;grid-template-columns:minmax(380px,1fr) minmax(400px,1.04fr);gap:56px;padding-top:40px;align-items:start}
+.grid{display:grid;grid-template-columns:minmax(420px,1.12fr) minmax(400px,1fr);gap:60px;padding-top:40px;align-items:start}
 @media(max-width:1000px){.grid{grid-template-columns:1fr;gap:32px}}
 
 /* ---- figuur ---- */
@@ -121,6 +121,34 @@ blockquote.def{margin:16px 0 0;padding:18px 22px;background:var(--panel);
 a{color:inherit}
 :focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 
+/* ---- presentatiestand ---- */
+.presbtn{background:none;border:0;cursor:pointer;padding:0;margin:0 0 14px;
+  font:500 10.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--soft);
+  display:inline-flex;align-items:center;gap:9px}
+.presbtn:hover{color:var(--acc)}
+.presbtn svg{width:12px;height:12px;display:inline-block}
+.prescap{display:none}
+body.pres{overflow:hidden}
+body.pres header,body.pres .panel,body.pres .legend,body.pres .intro,
+body.pres .foot,body.pres #v-denk,body.pres #v-verb,body.pres .presbtn,body.pres .reader{display:none!important}
+body.pres .wrap{max-width:none;padding:0;height:100vh}
+body.pres #v-ring{height:100vh}
+body.pres .grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(32px,4vw,72px);
+  padding:0 clamp(28px,4vw,72px);height:100vh;align-items:center}
+body.pres svg{max-height:90vh}
+body.pres .prescap{display:flex;flex-direction:column;gap:18px;max-width:44ch}
+.prescap .pk{font:500 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin:0}
+.prescap h2{font:300 clamp(34px,3.4vw,52px)/1.06 var(--serif);margin:0;letter-spacing:-.015em;text-wrap:balance}
+.prescap p{font:400 clamp(17px,1.35vw,22px)/1.55 var(--serif);color:#2A2C30;margin:0}
+.prescap .pl2{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:6px;border-top:1px solid var(--hair);
+  font:400 clamp(12px,1vw,14px) var(--sans);color:var(--soft)}
+.prescap .pl2 i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:8px}
+.presexit{position:fixed;top:22px;right:26px;z-index:70;background:var(--paper);
+  border:1px solid var(--hair);border-radius:2px;cursor:pointer;padding:9px 15px;
+  font:500 10.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--soft);display:none}
+body.pres .presexit{display:block}
+.presexit:hover{color:var(--acc);border-color:var(--acc)}
+
 /* ---- leesvenster met de nota ---- */
 .reader[hidden]{display:none!important}
 .reader{position:fixed;inset:0;z-index:60;background:rgba(20,22,26,.55);
@@ -160,7 +188,12 @@ a{color:inherit}
 <section id="v-ring">
 <div class="grid">
   <div>
-    <svg viewBox="30 46 760 812" role="img" aria-label="Vier bewegingen rond de aanloop van de nota, met elf delen en twee lussen terug">
+    <button class="presbtn" id="presbtn">
+      <svg viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M4.5 1H1v3.5M7.5 1H11v3.5M11 7.5V11H7.5M1 7.5V11h3.5"/></svg>
+      Presenteren
+    </button>
+    <svg viewBox="90 62 640 792" role="img" aria-label="Vier bewegingen rond de aanloop van de nota, met elf delen en twee lussen terug">
       <defs>
         <marker id="tip" markerWidth="11" markerHeight="11" refX="6.5" refY="3.6" orient="auto"><path d="M0,0 L7.4,3.6 L0,7.2 z" fill="#B5502A"/></marker>
         <marker id="tipd" markerWidth="11" markerHeight="11" refX="6.5" refY="3.6" orient="auto"><path d="M0,0 L7.4,3.6 L0,7.2 z" fill="#8A8F98"/></marker>
@@ -217,6 +250,7 @@ a{color:inherit}
     <p class="intro">De nota kent vier bewegingen. Elke beweging draagt de volgende: het fundament draagt de diagnose, de diagnose draagt het ontwerp, het ontwerp draagt de toepassing. De vierde beweging sluit de kring met twee lussen terug. In het midden staat de aanloop van de nota; daaromheen bouwen de bewegingen zich op. Klik de kern, een beweging, een deel of de lussen; wat u leest is telkens de tekst van de nota zelf.</p>
   </div>
   <div class="panel" id="panel"></div>
+  <div class="prescap" id="prescap"></div>
 </div>
 </section>
 
@@ -251,6 +285,8 @@ a{color:inherit}
     <iframe id="rframe" title="De nota"></iframe>
   </div>
 </div>
+
+<button class="presexit" id="presexit">Presentatie sluiten &nbsp;·&nbsp; Esc</button>
 
 <p class="foot">De volledige nota staat achter deze visual · Tom Braes, directeur patiëntenzorg en aandachtsdirecteur competentiecentra</p>
 </div>
@@ -693,6 +729,8 @@ function drawVooraf(){
    +'<p class="bsum">Drie stukken gaan aan de vier bewegingen vooraf: het beeld waar iedereen zich in herkent, de leeswijzer met de beslistafel, en de definitie die de rest van de nota draagt.</p>'
    +'<p class="bsrc"><a data-titel="Vooraf" href="'+NOTA+'#page=4" target="_blank" rel="noopener">Lees de aanloop in de nota &nbsp;·&nbsp; p.&nbsp;4&ndash;5 &rarr;</a></p>'
    +'<p class="count">De drie stukken</p>';
+  setCap('Vooraf &nbsp;\u00b7&nbsp; p. 4\u20135','Waar de nota begint',
+    'Drie stukken gaan aan de vier bewegingen vooraf: het beeld waar iedereen zich in herkent, de leeswijzer met de beslistafel, en de definitie die de rest van de nota draagt.');
   VOORAF.forEach((v,i)=>{
     let more='';
     (v.rest||[]).forEach(t=>{more+='<p class="sp">'+t+'</p>';});
@@ -726,6 +764,7 @@ function draw(l, open){
    +'<p class="bsum">'+b.tekst+'</p>'
    +'<p class="bsrc"><a data-titel="'+b.rom+' \u00b7 '+b.naam+'" href="'+NOTA+'#page='+D[b.d[0]].pg+'" target="_blank" rel="noopener">Lees deze beweging in de nota &nbsp;·&nbsp; p.&nbsp;'+D[b.d[0]].pg+'&ndash;'+b.tot+' &rarr;</a></p>'
    +'<p class="count">De '+(b.d.length===3?'drie':'twee')+' delen</p>';
+  setCap(b.rom+' &nbsp;\u00b7&nbsp; '+b.delen, b.naam, b.tekst);
   b.d.forEach(k=>{
     const c=D[k];
     h+='<div class="ch" data-k="'+k+'"><button aria-expanded="false"><span class="cht"><span class="nr">'+k+'</span><span>'+c.t+'</span><span class="pl">+</span></span>'
@@ -839,6 +878,32 @@ document.getElementById('verb').innerHTML=Object.keys(D).map(k=>
  +'<span class="who"><i style="background:'+WIE[D[k].w][1]+'"></i>'+B[BVAN[k]].naam
  +' &nbsp;·&nbsp; deel '+k+' &nbsp;·&nbsp; '+WIE[D[k].w][0]+'</span></div></div>').join('');
 
+
+/* ---- presentatiestand ---- */
+function setCap(kick,titel,tekst){
+  document.getElementById('prescap').innerHTML=
+    '<p class="pk">'+kick+'</p><h2>'+titel+'</h2><p>'+tekst+'</p>'
+   +'<div class="pl2"><span><i style="background:#C9A227"></i>Wat deze nota vastlegt</span>'
+   +'<span><i style="background:var(--acc)"></i>Wat het directiecomit\u00e9 beslist</span>'
+   +'<span><i style="background:#3E6B4E"></i>Wat de dialoog met de centra invult</span></div>';
+}
+function presOn(){
+  document.body.classList.add('pres');
+  const el=document.documentElement;
+  if(el.requestFullscreen) el.requestFullscreen().catch(()=>{});
+}
+function presOff(){
+  document.body.classList.remove('pres');
+  if(document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(()=>{});
+}
+document.getElementById('presbtn').onclick=presOn;
+document.getElementById('presexit').onclick=presOff;
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.body.classList.contains('pres')) presOff();
+});
+document.addEventListener('fullscreenchange',()=>{
+  if(!document.fullscreenElement) document.body.classList.remove('pres');
+});
 
 /* ---- leesvenster: opent de nota op de juiste bladzijde ---- */
 const RD=document.getElementById('reader'), RF=document.getElementById('rframe'),
