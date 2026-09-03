@@ -120,6 +120,25 @@ blockquote.def{margin:16px 0 0;padding:18px 22px;background:var(--panel);
 .foot{margin-top:52px;padding-top:16px;border-top:1px solid var(--hair);font:400 12.5px var(--sans);color:#A6A29B}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+/* ---- leesvenster met de nota ---- */
+.reader[hidden]{display:none!important}
+.reader{position:fixed;inset:0;z-index:60;background:rgba(20,22,26,.55);
+  display:flex;align-items:stretch;justify-content:flex-end}
+.rpane{background:var(--paper);width:min(880px,94vw);display:flex;flex-direction:column;
+  box-shadow:-18px 0 46px rgba(20,22,26,.22)}
+.rbar{display:flex;align-items:baseline;gap:18px;padding:16px 22px 14px;
+  border-bottom:1px solid var(--hair);flex:none}
+.rbar .rk{font:500 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+.rbar .rt{font:400 18px/1.3 var(--serif);flex:1 1 auto;min-width:0}
+.rbar a{font:500 10.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);text-decoration:none;flex:none}
+.rbar a:hover{text-decoration:underline}
+.rbar button{background:none;border:0;cursor:pointer;flex:none;padding:0 0 0 4px;
+  font:400 24px/1 var(--sans);color:var(--soft)}
+.rbar button:hover{color:var(--acc)}
+.reader iframe{border:0;flex:1 1 auto;width:100%;background:#55585C}
+@media(max-width:700px){.rpane{width:100vw}.rbar .rk{display:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -206,7 +225,7 @@ a{color:inherit}
     <p class="kick">Bijlage 1 &nbsp;·&nbsp; p. 55&ndash;57</p>
     <h2>Het denkteam achter deze nota</h2>
     <p class="bsum">Deze nota vertrekt vanuit een expliciete ontwerplogica. De vraag hoe competentiecentra kunnen bijdragen aan kwaliteit, expertise en organisatieontwikkeling laat zich niet vanuit één discipline beantwoorden. Deze nota vertrekt daarom vanuit negen complementaire perspectieven. Elk van hen helpt een andere ontwerpvraag beantwoorden. Samen vormen zij geen model, maar een taal om ontwerpkeuzes bespreekbaar te maken.</p>
-    <p class="bsrc"><a href="visienota-v7.pdf#page=55" target="_blank" rel="noopener">Lees bijlage 1 in de nota &nbsp;·&nbsp; p.&nbsp;55&ndash;57 &rarr;</a></p>
+    <p class="bsrc"><a data-titel="Bijlage 1 · Het denkteam achter deze nota" href="visienota-v7.pdf#page=55" target="_blank" rel="noopener">Lees bijlage 1 in de nota &nbsp;·&nbsp; p.&nbsp;55&ndash;57 &rarr;</a></p>
   </div>
   <div class="cards" id="denkers"></div>
 </section>
@@ -216,10 +235,22 @@ a{color:inherit}
     <p class="kick">Bijlage 2 &nbsp;·&nbsp; p. 58</p>
     <h2>Wat het huis zich verbindt te doen</h2>
     <p class="bsum">Elk deel van deze nota eindigt met <em>Wat hieruit volgt</em>. Samen vormen die elf zinnen wat dit huis zich met deze nota verbindt te doen.</p>
-    <p class="bsrc"><a href="visienota-v7.pdf#page=58" target="_blank" rel="noopener">Lees bijlage 2 in de nota &nbsp;·&nbsp; p.&nbsp;58 &rarr;</a></p>
+    <p class="bsrc"><a data-titel="Bijlage 2 · Wat het huis zich verbindt te doen" href="visienota-v7.pdf#page=58" target="_blank" rel="noopener">Lees bijlage 2 in de nota &nbsp;·&nbsp; p.&nbsp;58 &rarr;</a></p>
   </div>
   <div id="verb"></div>
 </section>
+
+<div class="reader" id="reader" hidden>
+  <div class="rpane" role="dialog" aria-modal="true" aria-label="De nota">
+    <div class="rbar">
+      <span class="rk">Visienota v7</span>
+      <span class="rt" id="rtitel"></span>
+      <a id="rtab" href="visienota-v7.pdf" target="_blank" rel="noopener">In nieuw tabblad</a>
+      <button id="rclose" aria-label="Sluiten">&times;</button>
+    </div>
+    <iframe id="rframe" title="De nota"></iframe>
+  </div>
+</div>
 
 <p class="foot">De volledige nota staat achter deze visual · Tom Braes, directeur patiëntenzorg en aandachtsdirecteur competentiecentra</p>
 </div>
@@ -660,7 +691,7 @@ function drawVooraf(){
   const p=document.getElementById('panel');
   let h='<p class="kick">Vooraf &nbsp;·&nbsp; p. 4&ndash;5</p><h2>Waar de nota begint</h2>'
    +'<p class="bsum">Drie stukken gaan aan de vier bewegingen vooraf: het beeld waar iedereen zich in herkent, de leeswijzer met de beslistafel, en de definitie die de rest van de nota draagt.</p>'
-   +'<p class="bsrc"><a href="'+NOTA+'#page=4" target="_blank" rel="noopener">Lees de aanloop in de nota &nbsp;·&nbsp; p.&nbsp;4&ndash;5 &rarr;</a></p>'
+   +'<p class="bsrc"><a data-titel="Vooraf" href="'+NOTA+'#page=4" target="_blank" rel="noopener">Lees de aanloop in de nota &nbsp;·&nbsp; p.&nbsp;4&ndash;5 &rarr;</a></p>'
    +'<p class="count">De drie stukken</p>';
   VOORAF.forEach((v,i)=>{
     let more='';
@@ -673,7 +704,7 @@ function drawVooraf(){
     (v.na||[]).forEach(t=>{more+='<p class="sp">'+t+'</p>';});
     if(v.def){more+='<blockquote class="def">'+v.def+'</blockquote>';}
     (v.sub||[]).forEach(s=>{more+='<p class="sp"><b>'+s[0]+'.</b> '+s[1]+'</p>';});
-    more+='<p class="open"><a href="'+NOTA+'#page='+v.pg+'" target="_blank" rel="noopener">Open in de nota &nbsp;·&nbsp; p.&nbsp;'+v.pg+' &rarr;</a></p>';
+    more+='<p class="open"><a data-titel="'+v.t+'" href="'+NOTA+'#page='+v.pg+'" target="_blank" rel="noopener">Open in de nota &nbsp;·&nbsp; p.&nbsp;'+v.pg+' &rarr;</a></p>';
     h+='<div class="ch" data-k="v'+i+'"><button aria-expanded="false"><span class="cht">'
       +'<span class="nr">&mdash;</span><span>'+v.t+'</span><span class="pl">+</span></span>'
       +'<span class="sp">'+v.lead+'</span></button><div class="more">'+more+'</div></div>';
@@ -693,7 +724,7 @@ function draw(l, open){
   const b=B[l], p=document.getElementById('panel');
   let h='<p class="kick">'+b.rom+' &nbsp;·&nbsp; '+b.delen+'</p><h2>'+b.naam+'</h2>'
    +'<p class="bsum">'+b.tekst+'</p>'
-   +'<p class="bsrc"><a href="'+NOTA+'#page='+D[b.d[0]].pg+'" target="_blank" rel="noopener">Lees deze beweging in de nota &nbsp;·&nbsp; p.&nbsp;'+D[b.d[0]].pg+'&ndash;'+b.tot+' &rarr;</a></p>'
+   +'<p class="bsrc"><a data-titel="'+b.rom+' \u00b7 '+b.naam+'" href="'+NOTA+'#page='+D[b.d[0]].pg+'" target="_blank" rel="noopener">Lees deze beweging in de nota &nbsp;·&nbsp; p.&nbsp;'+D[b.d[0]].pg+'&ndash;'+b.tot+' &rarr;</a></p>'
    +'<p class="count">De '+(b.d.length===3?'drie':'twee')+' delen</p>';
   b.d.forEach(k=>{
     const c=D[k];
@@ -704,9 +735,9 @@ function draw(l, open){
       +'<p class="sp"><b>Waarom dit ertoe doet.</b> '+c.waarom+'</p>'
       +'<p class="sp"><b>Wat hieruit volgt.</b> '+c.volgt+'</p>'
       +'<p class="lbl">De opbouw van dit hoofdstuk</p><ul class="subs">'
-      + c.s.map(x=>'<li><a href="'+NOTA+'#page='+x[1]+'" target="_blank" rel="noopener">'+x[0]+'<span class="pp">p.&nbsp;'+x[1]+'</span></a></li>').join('')
+      + c.s.map(x=>'<li><a data-titel="'+x[0]+'" href="'+NOTA+'#page='+x[1]+'" target="_blank" rel="noopener">'+x[0]+'<span class="pp">p.&nbsp;'+x[1]+'</span></a></li>').join('')
       +'</ul>'
-      +'<p class="open"><a href="'+NOTA+'#page='+c.pg+'" target="_blank" rel="noopener">Open deel '+k+' in de nota &rarr;</a></p>'
+      +'<p class="open"><a data-titel="Deel '+k+' \u00b7 '+c.t+'" href="'+NOTA+'#page='+c.pg+'" target="_blank" rel="noopener">Open deel '+k+' in de nota &rarr;</a></p>'
       +'</div></div>';
   });
   p.innerHTML=h;
@@ -807,6 +838,31 @@ document.getElementById('verb').innerHTML=Object.keys(D).map(k=>
  '<div class="vb"><span class="n">'+k+'</span><div><p class="sp">'+D[k].volgt+'</p>'
  +'<span class="who"><i style="background:'+WIE[D[k].w][1]+'"></i>'+B[BVAN[k]].naam
  +' &nbsp;·&nbsp; deel '+k+' &nbsp;·&nbsp; '+WIE[D[k].w][0]+'</span></div></div>').join('');
+
+
+/* ---- leesvenster: opent de nota op de juiste bladzijde ---- */
+const RD=document.getElementById('reader'), RF=document.getElementById('rframe'),
+      RT=document.getElementById('rtitel'), RA=document.getElementById('rtab');
+function openNota(pg,titel){
+  RT.textContent=titel+'  \u00b7  p. '+pg;
+  RA.href=NOTA+'#page='+pg;
+  RF.src='';
+  RF.src=NOTA+'#page='+pg+'&view=FitH&toolbar=1';
+  RD.hidden=false;
+  document.body.style.overflow='hidden';
+  document.getElementById('rclose').focus();
+}
+function closeNota(){RD.hidden=true;RF.src='';document.body.style.overflow='';}
+document.getElementById('rclose').onclick=closeNota;
+RD.onclick=e=>{if(e.target===RD)closeNota();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!RD.hidden)closeNota();});
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href*="#page="]');
+  if(!a||e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0)return;
+  e.preventDefault();
+  const pg=a.getAttribute('href').split('#page=')[1].split('&')[0];
+  openNota(pg, a.dataset.titel || 'De nota');
+});
 
 const V={ring:'v-ring',denk:'v-denk',verb:'v-verb'};
 document.querySelectorAll('nav button').forEach(t=>t.onclick=()=>{
