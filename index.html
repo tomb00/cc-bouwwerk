@@ -136,13 +136,17 @@ body.pres #v-ring{height:100vh}
 body.pres .grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(32px,4vw,72px);
   padding:0 clamp(28px,4vw,72px);height:100vh;align-items:center}
 body.pres svg{max-height:90vh}
-body.pres .prescap{display:flex;flex-direction:column;gap:18px;max-width:44ch}
+body.pres .prescap{display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px);max-width:48ch}
 .prescap .pk{font:500 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin:0}
 .prescap h2{font:300 clamp(34px,3.4vw,52px)/1.06 var(--serif);margin:0;letter-spacing:-.015em;text-wrap:balance}
-.prescap p{font:400 clamp(17px,1.35vw,22px)/1.55 var(--serif);color:#2A2C30;margin:0}
-.prescap .pl2{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:6px;border-top:1px solid var(--hair);
-  font:400 clamp(12px,1vw,14px) var(--sans);color:var(--soft)}
-.prescap .pl2 i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:8px}
+.prescap .pt{font:400 clamp(16px,1.3vw,21px)/1.55 var(--serif);color:#2A2C30;margin:0}
+.prescap .pt b{font-weight:600;color:var(--ink)}
+.prescap .pll{list-style:none;margin:2px 0 0;padding:0;border-top:1px solid var(--hair)}
+.prescap .pll li{display:flex;gap:clamp(12px,1.1vw,18px);align-items:baseline;
+  padding:clamp(7px,.75vw,11px) 0;border-bottom:1px solid var(--hair);
+  font:400 clamp(15px,1.2vw,19px)/1.35 var(--serif);color:#2A2C30}
+.prescap .pll .pn{font:500 clamp(11px,.85vw,13px) var(--sans);color:var(--soft);
+  flex:none;min-width:2.4em;font-variant-numeric:tabular-nums}
 .presexit{position:fixed;top:22px;right:26px;z-index:70;background:var(--paper);
   border:1px solid var(--hair);border-radius:2px;cursor:pointer;padding:9px 15px;
   font:500 10.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--soft);display:none}
@@ -730,7 +734,8 @@ function drawVooraf(){
    +'<p class="bsrc"><a data-titel="Vooraf" href="'+NOTA+'#page=4" target="_blank" rel="noopener">Lees de aanloop in de nota &nbsp;·&nbsp; p.&nbsp;4&ndash;5 &rarr;</a></p>'
    +'<p class="count">De drie stukken</p>';
   setCap('Vooraf &nbsp;\u00b7&nbsp; p. 4\u20135','Waar de nota begint',
-    'Drie stukken gaan aan de vier bewegingen vooraf: het beeld waar iedereen zich in herkent, de leeswijzer met de beslistafel, en de definitie die de rest van de nota draagt.');
+    'Drie stukken gaan aan de vier bewegingen vooraf: het beeld waar iedereen zich in herkent, de leeswijzer met de beslistafel, en de definitie die de rest van de nota draagt.',
+    VOORAF.map(function(v){return ['\u2014', v.t];}));
   VOORAF.forEach((v,i)=>{
     let more='';
     (v.rest||[]).forEach(t=>{more+='<p class="sp">'+t+'</p>';});
@@ -764,7 +769,8 @@ function draw(l, open){
    +'<p class="bsum">'+b.tekst+'</p>'
    +'<p class="bsrc"><a data-titel="'+b.rom+' \u00b7 '+b.naam+'" href="'+NOTA+'#page='+D[b.d[0]].pg+'" target="_blank" rel="noopener">Lees deze beweging in de nota &nbsp;·&nbsp; p.&nbsp;'+D[b.d[0]].pg+'&ndash;'+b.tot+' &rarr;</a></p>'
    +'<p class="count">De '+(b.d.length===3?'drie':'twee')+' delen</p>';
-  setCap(b.rom+' &nbsp;\u00b7&nbsp; '+b.delen, b.naam, b.tekst);
+  setCap(b.rom+' &nbsp;\u00b7&nbsp; '+b.delen, b.naam, b.tekst,
+    b.d.map(function(k){return [k, D[k].t];}));
   b.d.forEach(k=>{
     const c=D[k];
     h+='<div class="ch" data-k="'+k+'"><button aria-expanded="false"><span class="cht"><span class="nr">'+k+'</span><span>'+c.t+'</span><span class="pl">+</span></span>'
@@ -787,6 +793,10 @@ function draw(l, open){
     if(open&&el.dataset.k==open){el.classList.add('open');
       btn.setAttribute('aria-expanded','true');el.querySelector('.pl').textContent='–';}
   });
+  if(open){const c=D[open];
+    setCap(b.rom+' &nbsp;\u00b7&nbsp; deel '+open, c.t,
+      '<b>In één zin.</b> '+c.zin, c.s.map(function(x){
+        const i=x[0].indexOf(' ');return [x[0].slice(0,i), x[0].slice(i+1)];}));}
 }
 document.querySelectorAll('.band').forEach(b=>b.onclick=()=>{
   if(b.dataset.l==='v'){drawVooraf();}else{draw(b.dataset.l);}});
@@ -880,12 +890,14 @@ document.getElementById('verb').innerHTML=Object.keys(D).map(k=>
 
 
 /* ---- presentatiestand ---- */
-function setCap(kick,titel,tekst){
+function setCap(kick,titel,tekst,lijst){
+  var l='';
+  if(lijst&&lijst.length){
+    l='<ul class="pll">'+lijst.map(function(r){
+      return '<li><span class="pn">'+r[0]+'</span><span>'+r[1]+'</span></li>';}).join('')+'</ul>';
+  }
   document.getElementById('prescap').innerHTML=
-    '<p class="pk">'+kick+'</p><h2>'+titel+'</h2><p>'+tekst+'</p>'
-   +'<div class="pl2"><span><i style="background:#C9A227"></i>Wat deze nota vastlegt</span>'
-   +'<span><i style="background:var(--acc)"></i>Wat het directiecomit\u00e9 beslist</span>'
-   +'<span><i style="background:#3E6B4E"></i>Wat de dialoog met de centra invult</span></div>';
+    '<p class="pk">'+kick+'</p><h2>'+titel+'</h2><p class="pt">'+tekst+'</p>'+l;
 }
 function presOn(){
   document.body.classList.add('pres');
