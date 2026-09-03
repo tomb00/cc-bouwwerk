@@ -64,9 +64,9 @@ svg{width:100%;height:auto;display:block;overflow:visible}
 .tabhead{padding-top:44px;max-width:66ch}
 .bsum{font-size:17.5px;line-height:1.62;color:#2A2C30;margin:0;max-width:60ch}
 .bsrc{margin:14px 0 0}
-.bsrc a,.open a{font:500 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;
+.bsrc a,p.open a{font:500 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;
   color:var(--acc);text-decoration:none;border-bottom:1px solid rgba(181,80,42,.35);padding-bottom:2px}
-.bsrc a:hover,.open a:hover{border-bottom-color:var(--acc)}
+.bsrc a:hover,p.open a:hover{border-bottom-color:var(--acc)}
 .count{font:500 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--soft);
   margin:34px 0 0;padding-top:16px;border-top:1px solid var(--hair)}
 
@@ -260,20 +260,20 @@ body.pres .presexit{display:block}
 
 <section id="v-denk" class="hidden">
   <div class="tabhead">
-    <p class="kick">Bijlage 1 &nbsp;·&nbsp; p. 55&ndash;57</p>
+    <p class="kick">Bijlage 1 &nbsp;·&nbsp; p. 50&ndash;52</p>
     <h2>Het denkteam achter deze nota</h2>
     <p class="bsum">Deze nota vertrekt vanuit een expliciete ontwerplogica. De vraag hoe competentiecentra kunnen bijdragen aan kwaliteit, expertise en organisatieontwikkeling laat zich niet vanuit één discipline beantwoorden. Deze nota vertrekt daarom vanuit negen complementaire perspectieven. Elk van hen helpt een andere ontwerpvraag beantwoorden. Samen vormen zij geen model, maar een taal om ontwerpkeuzes bespreekbaar te maken.</p>
-    <p class="bsrc"><a data-titel="Bijlage 1 · Het denkteam achter deze nota" href="visienota-v7.pdf#page=55" target="_blank" rel="noopener">Lees bijlage 1 in de nota &nbsp;·&nbsp; p.&nbsp;55&ndash;57 &rarr;</a></p>
+    <p class="bsrc"><a data-titel="Bijlage 1 · Het denkteam achter deze nota" href="visienota-v7.pdf#page=50" target="_blank" rel="noopener">Lees bijlage 1 in de nota &nbsp;·&nbsp; p.&nbsp;50&ndash;52 &rarr;</a></p>
   </div>
   <div class="cards" id="denkers"></div>
 </section>
 
 <section id="v-verb" class="hidden">
   <div class="tabhead">
-    <p class="kick">Bijlage 2 &nbsp;·&nbsp; p. 58</p>
-    <h2>Wat het huis zich verbindt te doen</h2>
+    <p class="kick">Bijlage 2 &nbsp;·&nbsp; p. 53</p>
+    <h2>Waar het huis zich toe verbindt</h2>
     <p class="bsum">Elk deel van deze nota eindigt met <em>Wat hieruit volgt</em>. Samen vormen die elf zinnen wat dit huis zich met deze nota verbindt te doen.</p>
-    <p class="bsrc"><a data-titel="Bijlage 2 · Wat het huis zich verbindt te doen" href="visienota-v7.pdf#page=58" target="_blank" rel="noopener">Lees bijlage 2 in de nota &nbsp;·&nbsp; p.&nbsp;58 &rarr;</a></p>
+    <p class="bsrc"><a data-titel="Bijlage 2 · Waar het huis zich toe verbindt" href="visienota-v7.pdf#page=53" target="_blank" rel="noopener">Lees bijlage 2 in de nota &nbsp;·&nbsp; p.&nbsp;53 &rarr;</a></p>
   </div>
   <div id="verb"></div>
 </section>
@@ -303,8 +303,25 @@ const D={
   "t": "Wat een competentiecentrum is",
   "w": "nota",
   "pg": 7,
+  "sum": [
+   [
+    "In één zin.",
+    "Competentiecentra zijn de manier waarop dit huis ervoor zorgt dat expertise van het huis is, van het huis blijft, en buiten het huis als goede praktijk herkenbaar wordt."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "De omschrijving op ons intranet beschrijft een bemanningslogica. Wat wij vandaag van competentiecentra verwachten, veronderstelt een kennislogica. Zolang beide naast elkaar bestaan, rust elke afspraak over mandaat, capaciteit en governance op een onduidelijke grondslag."
+   ],
+   [
+    null,
+    "Tegelijk is de opdracht zwaarder geworden. Loopbanen worden korter en mobieler. Taakverschuiving en nieuwe functies vragen dat bekwaamheid expliciet wordt beschreven in plaats van stilzwijgend verondersteld op basis van een diploma. Specialisatie verdiept, terwijl teams breder en multidisciplinair worden samengesteld. Expertise verlaat het huis soms sneller dan ze zich opbouwt. Borging en overdracht zijn daarmee een expliciete organisatieopdracht geworden."
+   ],
+   [
+    "Wat hieruit volgt.",
+    "Het ziekenhuis hanteert vanaf nu één definitie van een competentiecentrum en belegt de bemanningsopdracht uitdrukkelijk elders."
+   ]
+  ],
   "zin": "Competentiecentra zijn de manier waarop dit huis ervoor zorgt dat expertise van het huis is, van het huis blijft, en buiten het huis als goede praktijk herkenbaar wordt.",
-  "waarom": "De omschrijving op ons intranet beschrijft een bemanningslogica. Wat wij vandaag van competentiecentra verwachten, veronderstelt een kennislogica. Zolang beide naast elkaar bestaan, rust elke afspraak over mandaat, capaciteit en governance op een onduidelijke grondslag.",
   "volgt": "Het ziekenhuis hanteert vanaf nu één definitie van een competentiecentrum en belegt de bemanningsopdracht uitdrukkelijk elders.",
   "s": [
    [
@@ -313,7 +330,7 @@ const D={
    ],
    [
     "1.2 De vier kenmerken",
-    8
+    7
    ],
    [
     "1.3 Waarom één domein, en toch interprofessioneel",
@@ -321,7 +338,7 @@ const D={
    ],
    [
     "1.4 Verhouding tot de bestaande omschrijving",
-    10
+    9
    ]
   ]
  },
@@ -329,279 +346,409 @@ const D={
   "t": "Waartoe competentiecentra bestaan",
   "w": "nota",
   "pg": 11,
+  "sum": [
+   [
+    "In één zin.",
+    "De werkelijkheid van elke patiënt is breder dan het domein van elke afzonderlijke discipline; samenwerking is daarmee een professionele opdracht."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "Interprofessionele samenwerking wordt meestal verdedigd met praktische argumenten: zij maakt zorg efficiënter, aangenamer en voorkomt dubbel werk. Er bestaat een fundamenteler argument, en dat argument draagt deze hele nota. Het maakt van samenwerking een rechtstreeks gevolg van de bestaansreden van zorgberoepen zelf. Tegelijk introduceert het een onderscheid dat in de rest van deze nota blijft terugkeren: dat tussen middelen en bestaansreden."
+   ],
+   [
+    "Wat hieruit volgt.",
+    "Het ziekenhuis organiseert en beschermt ruimte waarin professionele perspectieven elkaar ontmoeten, bevragen en verrijken. Georganiseerde vreemdheid is een expliciete opdracht."
+   ]
+  ],
   "zin": "De werkelijkheid van elke patiënt is breder dan het domein van elke afzonderlijke discipline; samenwerking is daarmee een professionele opdracht.",
-  "waarom": "Interprofessionele samenwerking wordt meestal verdedigd met praktische argumenten: zij maakt zorg efficiënter, aangenamer en voorkomt dubbel werk. Er bestaat een fundamenteler argument, en dat argument draagt deze hele nota. Het maakt van samenwerking een rechtstreeks gevolg van de bestaansreden van zorgberoepen zelf. Tegelijk introduceert het een onderscheid dat in de rest van deze nota blijft terugkeren: dat tussen middelen en bestaansreden.",
   "volgt": "Het ziekenhuis organiseert en beschermt ruimte waarin professionele perspectieven elkaar ontmoeten, bevragen en verrijken. Georganiseerde vreemdheid is een expliciete opdracht.",
   "s": [
    [
     "2.1 Het argument in drie stappen",
-    12
+    11
    ],
    [
     "2.2 Middelen en bestaansreden",
-    13
+    12
    ],
    [
     "2.3 Georganiseerde vreemdheid als tweede bestaansreden",
-    13
+    12
    ]
   ]
  },
  "3": {
   "t": "Paden en gewoonten: waarom grenzen ontstaan",
   "w": "nota",
-  "pg": 15,
+  "pg": 14,
+  "sum": [
+   [
+    "In één zin.",
+    "Professionele gewoonten slijten in tot vanzelfsprekendheden; wat vanzelfsprekend is, verdwijnt uit het gesprek."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "Iedere zorgprofessional weet dat samenwerking noodzakelijk is. Toch blijken de grenzen tussen disciplines opmerkelijk hardnekkig. Dat is een voorspelbaar gevolg van hoe vakmanschap wordt opgebouwd en doorgegeven. Professionele gemeenschappen leren hun leden wat zij moeten doen én hoe zij naar de werkelijkheid kijken. Sommige aannames worden daardoor zo vanzelfsprekend dat niemand ze nog opmerkt. Dit deel verklaart hoe zulke grenzen ontstaan en waarom reflectie niet spontaan ontstaat, maar ontworpen moet worden."
+   ],
+   [
+    "Wat hieruit volgt.",
+    "Gemengde samenstelling, externe stemmen en wisselende contexten krijgen een vaste plaats in de agenda van elk competentiecentrum."
+   ]
+  ],
   "zin": "Professionele gewoonten slijten in tot vanzelfsprekendheden; wat vanzelfsprekend is, verdwijnt uit het gesprek.",
-  "waarom": "Iedere zorgprofessional weet dat samenwerking noodzakelijk is. Toch blijken de grenzen tussen disciplines opmerkelijk hardnekkig. Dat is een voorspelbaar gevolg van hoe vakmanschap wordt opgebouwd en doorgegeven. Professionele gemeenschappen leren hun leden wat zij moeten doen én hoe zij naar de werkelijkheid kijken. Sommige aannames worden daardoor zo vanzelfsprekend dat niemand ze nog opmerkt. Dit deel verklaart hoe zulke grenzen ontstaan en waarom reflectie niet spontaan ontstaat, maar ontworpen moet worden.",
-  "volgt": "Gemengde samenstelling, externe stemmen en een andere context krijgen een vaste plaats in de agenda van elk competentiecentrum.",
+  "volgt": "Gemengde samenstelling, externe stemmen en wisselende contexten krijgen een vaste plaats in de agenda van elk competentiecentrum.",
   "s": [
    [
     "3.1 Hoe vakmanschap zijn eigen grenzen produceert",
-    15
+    14
    ],
    [
     "3.2 Het pad en de tractor",
-    16
+    15
    ],
    [
     "3.3 Reflectie in twee ordes",
-    16
+    15
    ],
    [
     "3.4 Professionele tolerantie",
-    18
+    16
    ],
    [
     "3.5 Productieve disharmonie",
-    18
+    17
    ]
   ]
  },
  "4": {
   "t": "Diagnose: spanning als ontwerpvraag",
   "w": "dc",
-  "pg": 21,
+  "pg": 19,
+  "sum": [
+   [
+    "In één zin.",
+    "De spanning tussen diensten en competentiecentra volgt uit vier samenhangende breuklijnen: mandaat, inzet, besluit en proces. Herstel begint bij de dragende laag: het mandaat."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "Deel 3 verklaart waarom grenzen blijven bestaan wanneer niemand ze onderhoudt. Dit deel verklaart waarom spanning ontstaat, ook wanneer iedereen wél wil. Wat zich in de dagelijkse praktijk toont als wisselende betrokkenheid, frustratie of moeizame samenwerking, laat zich preciezer benoemen. Veel van die spanning komt voort uit de manier waarop de organisatie is ingericht. Dit deel levert de diagnose waarop alle ontwerpvoorstellen in deze nota steunen, en verklaart waarom sommige interventies weinig effect hebben zolang de onderliggende structurele vragen onbeantwoord blijven."
+   ],
+   [
+    "Wat hieruit volgt.",
+    "De organisatie kiest expliciet hoe de verticale en de horizontale as zich tot elkaar verhouden, afhankelijk van de opgave, het risicoprofiel en het gewenste resultaat."
+   ]
+  ],
   "zin": "De spanning tussen diensten en competentiecentra volgt uit vier samenhangende breuklijnen: mandaat, inzet, besluit en proces. Herstel begint bij de dragende laag: het mandaat.",
-  "waarom": "Deel 3 verklaart waarom grenzen blijven bestaan wanneer niemand ze onderhoudt. Dit deel verklaart waarom spanning ontstaat, ook wanneer iedereen wél wil. Wat zich in de dagelijkse praktijk toont als wisselende betrokkenheid, frustratie of moeizame samenwerking, laat zich preciezer benoemen. Veel van die spanning komt voort uit de manier waarop de organisatie is ingericht. Dit deel levert de diagnose waarop alle ontwerpvoorstellen in deze nota steunen, en verklaart waarom sommige interventies weinig effect hebben zolang de onderliggende structurele vragen onbeantwoord blijven.",
   "volgt": "De organisatie kiest expliciet hoe de verticale en de horizontale as zich tot elkaar verhouden, afhankelijk van de opgave, het risicoprofiel en het gewenste resultaat.",
   "s": [
    [
     "4.1 De matrix als ontwerpkeuze",
-    21
+    19
    ],
    [
     "4.2 Exploitatie en exploratie: spanning als systeemkenmerk",
-    21
+    19
    ],
    [
     "4.3 Wanneer spanning naar mensen verschuift",
-    22
+    20
    ],
    [
     "4.4 Vier breuklijnen in één systeem",
-    22
+    20
    ],
    [
     "4.5 Werkbare asymmetrie",
-    23
+    21
    ],
    [
     "4.6 Vier instrumenten, vier doorsneden",
-    24
+    22
    ]
   ]
  },
  "5": {
   "t": "Ons ziekenhuis: traditie, transitie en professionele autonomie",
   "w": "dc",
-  "pg": 25,
+  "pg": 23,
+  "sum": [
+   [
+    "In één zin.",
+    "In een professionele organisatie ontstaat gezag uit professionele geloofwaardigheid, meer dan uit positie."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "De spanning uit deel 4 bestaat in elke matrixorganisatie. Hoe sterk zij wordt ervaren, hangt af van de context. Drie kenmerken van UPC maken die spanning tegelijk groter en belangrijker: een professionele organisatievorm, een sterke traditie, en een omgeving in verandering. Een elegant organigram volstaat daarom niet; het ontwerp moet professioneel geloofwaardig zijn."
+   ],
+   [
+    "Wat hieruit volgt.",
+    "Ontwerpkeuzes worden eerst verantwoord vanuit de spanning die zij helpen dragen, en pas daarna vanuit de structuur die zij creëren. Een horizontale opdracht krijgt slechts slagkracht wanneer professionele legitimiteit gepaard gaat met voldoende zeggenschap."
+   ]
+  ],
   "zin": "In een professionele organisatie ontstaat gezag uit professionele geloofwaardigheid, meer dan uit positie.",
-  "waarom": "De spanning uit deel 4 bestaat in elke matrixorganisatie. Hoe sterk zij wordt ervaren, hangt af van de context. Drie kenmerken van UPC maken die spanning tegelijk groter en belangrijker: een professionele organisatievorm, een sterke traditie, en een omgeving in verandering. Een elegant organigram volstaat daarom niet; het ontwerp moet professioneel geloofwaardig zijn.",
-  "volgt": "Ontwerpkeuzes worden eerst verantwoord vanuit de spanning die zij helpen dragen, en pas daarna vanuit de structuur die zij creëren.",
+  "volgt": "Ontwerpkeuzes worden eerst verantwoord vanuit de spanning die zij helpen dragen, en pas daarna vanuit de structuur die zij creëren. Een horizontale opdracht krijgt slechts slagkracht wanneer professionele legitimiteit gepaard gaat met voldoende zeggenschap.",
   "s": [
    [
     "5.1 Waar gezag vandaan komt",
-    25
+    23
    ],
    [
     "5.2 Een organisatie tussen traditie én transitie",
-    25
+    23
    ],
    [
     "5.3 Universitair karakter en hoog-autonome professionals",
-    26
+    24
    ],
    [
     "5.4 Waar deze vormen elders voorkomen",
-    26
+    24
    ],
    [
     "5.5 Onze eigen voorgeschiedenis",
-    27
+    24
    ]
   ]
  },
  "6": {
   "t": "Lidmaatschap: wie de opdracht draagt",
   "w": "dia",
-  "pg": 30,
-  "zin": "Een competentiecentrum draagt verantwoordelijkheid zodra duidelijk is wie die verantwoordelijkheid draagt; een gelaagd lidmaatschap maakt verschillen in tijd en engagement draagbaar.",
-  "waarom": "De vier breuklijnen convergeren in één onbeantwoorde vraag. Zolang lidmaatschap een impliciete combinatie blijft van betrokkenheid, beschikbaarheid en goodwill, zweven afspraken over mandaat, capaciteit en governance boven een onbepaalde groep.",
-  "volgt": "Het ziekenhuis kiest samen met de competentiecentra één taalregister voor lidmaatschap, en houdt dat  consequent aan.",
+  "pg": 27,
+  "sum": [
+   [
+    "In één zin.",
+    "Verantwoordelijkheid wordt pas organiseerbaar wanneer duidelijk is wie lid is, wat dat lidmaatschap vraagt en welke verschillende vormen van betrokkenheid mogelijk zijn."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "Zolang lidmaatschap een impliciete combinatie blijft van betrokkenheid, beschikbaarheid en goodwill, zweven afspraken over mandaat, capaciteit en governance boven een onbepaalde groep. Een gelaagd model maakt verschillen in tijd, engagement en verantwoordelijkheid expliciet en draagbaar."
+   ],
+   [
+    "Wat hieruit volgt.",
+    "Het ziekenhuis ontwikkelt samen met de competentiecentra een expliciet en gelaagd model van lidmaatschap, kiest daarvoor één taalregister en past dat consequent toe."
+   ]
+  ],
+  "zin": "Verantwoordelijkheid wordt pas organiseerbaar wanneer duidelijk is wie lid is, wat dat lidmaatschap vraagt en welke verschillende vormen van betrokkenheid mogelijk zijn.",
+  "volgt": "Het ziekenhuis ontwikkelt samen met de competentiecentra een expliciet en gelaagd model van lidmaatschap, kiest daarvoor één taalregister en past dat consequent toe.",
   "s": [
    [
     "6.1 Lidmaatschap als expliciete rol",
-    30
+    27
    ],
    [
     "6.2 Lidmaatschap als dubbele verankering",
-    30
+    27
    ],
    [
     "6.3 Een gelaagd model van lidmaatschap",
-    31
+    28
    ],
    [
     "6.4 Wat de dialoog beslecht",
-    31
+    28
    ]
   ]
  },
  "7": {
   "t": "Maturiteit: vier dimensies",
   "w": "dc",
-  "pg": 33,
-  "zin": "Competentiecentra ontwikkelen zich langs vier samenhangende dimensies: besluitvorming, capaciteit, autoriteit en governance. Volwassenheid ontstaat wanneer die vier elkaar beginnen te versterken.",
-  "waarom": "Competentiecentra verschillen sterk van elkaar. Die verschillen zeggen weinig over kwaliteit en veel over ontwikkelingsfase. Een maturiteitslens verschuift het gesprek van oordeel naar ontwerp en maakt zichtbaar waar de hefboom per centrum ligt.",
+  "pg": 30,
+  "sum": [
+   [
+    "In één zin.",
+    "Competentiecentra ontwikkelen zich langs vier samenhangende dimensies: mandaat, capaciteit, autoriteit en governance. Volwassenheid ontstaat wanneer die vier elkaar beginnen te versterken."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "Competentiecentra verschillen sterk van elkaar. Die verschillen zeggen weinig over kwaliteit en veel over ontwikkelingsfase. Een maturiteitslens verschuift het gesprek van oordeel naar ontwerp en maakt zichtbaar waar de hefboom per centrum ligt."
+   ],
+   [
+    "Wat hieruit volgt.",
+    "Elk centrum situeert zichzelf op de vier dimensies en spiegelt dat beeld aan diensthoofden, directie en collega-centra."
+   ]
+  ],
+  "zin": "Competentiecentra ontwikkelen zich langs vier samenhangende dimensies: mandaat, capaciteit, autoriteit en governance. Volwassenheid ontstaat wanneer die vier elkaar beginnen te versterken.",
   "volgt": "Elk centrum situeert zichzelf op de vier dimensies en spiegelt dat beeld aan diensthoofden, directie en collega-centra.",
   "s": [
    [
     "7.1 Waarom een maturiteitslens",
-    33
+    30
    ],
    [
     "7.2 Het model in één beeld",
-    33
+    30
    ],
    [
     "7.3 Besluitvormingscapaciteit: van relationele invloed naar structureel mandaat",
-    34
+    31
    ],
    [
     "7.4 Capaciteitstoewijzing: van individuele loyaliteit naar collectief beheer",
-    35
+    32
    ],
    [
     "7.5 Professionele autoriteit: van persoon naar instituut",
-    36
+    32
    ],
    [
     "7.6 Governance en verantwoording: van vrijblijvend overleg naar lerend systeem",
-    37
+    33
    ],
    [
     "7.7 Samenhang tussen de dimensies",
-    38
+    34
    ],
    [
     "7.8 Innovatie als gevolg van ontwerp",
-    38
+    34
    ]
   ]
  },
  "8": {
   "t": "Ontwerpprincipes en governance-architectuur",
   "w": "dc",
-  "pg": 40,
+  "pg": 36,
+  "sum": [
+   [
+    "In één zin.",
+    "Expliciete governance is de voorwaarde voor professionele ruimte: heldere kaders ontlasten samenwerking en maken haar voorspelbaar."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "Maturiteit volgt uit bewuste ontwerpkeuzes. Zonder expliciete governance dragen individuen de spanning, verschuiven verantwoordelijkheden en ontstaat willekeur."
+   ],
+   [
+    "Wat hieruit volgt.",
+    "Elk competentiecentrum beschikt over de zeven kerncomponenten; de drie ontwerpprincipes bepalen hoe die worden ingevuld."
+   ]
+  ],
   "zin": "Expliciete governance is de voorwaarde voor professionele ruimte: heldere kaders ontlasten samenwerking en maken haar voorspelbaar.",
-  "waarom": "Maturiteit volgt uit bewuste ontwerpkeuzes. Zonder expliciete governance dragen individuen de spanning, verschuiven verantwoordelijkheden en ontstaat willekeur.",
   "volgt": "Elk competentiecentrum beschikt over de zeven kerncomponenten; de drie ontwerpprincipes bepalen hoe die worden ingevuld.",
   "s": [
    [
     "8.1 Waarom governance professionele ruimte creëert",
-    40
+    36
    ],
    [
     "8.2 Drie ontwerpprincipes",
-    40
+    36
    ],
    [
     "8.3 Zeven kerncomponenten",
-    42
+    37
    ],
    [
     "8.4 Samenhang",
-    42
+    38
    ]
   ]
  },
  "9": {
   "t": "Ambitie per centrum",
   "w": "dc",
-  "pg": 45,
+  "pg": 40,
+  "sum": [
+   [
+    "In één zin.",
+    "De gewenste maturiteit is een strategische keuze per domein, bepaald door het tempo waarin de kennis verandert en door het belang van dat domein voor het ziekenhuis."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "\"We willen effectievere competentiecentra\" is een wens. Dit deel vertaalt die wens naar keuzes over waar, hoe en wanneer we investeren. Zonder die vertaling krijgt elk centrum dezelfde behandeling voor een verschillende opgave."
+   ],
+   [
+    "Wat hieruit volgt.",
+    "Ambitieniveaus worden in dialoog voorbereid door coördinator, diensten en directie, op directieniveau vastgelegd en periodiek herbevestigd."
+   ]
+  ],
   "zin": "De gewenste maturiteit is een strategische keuze per domein, bepaald door het tempo waarin de kennis verandert en door het belang van dat domein voor het ziekenhuis.",
-  "waarom": "\u201cWe willen effectievere competentiecentra\u201d is een wens. Dit deel vertaalt die wens naar keuzes over waar, hoe en wanneer we investeren. Zonder die vertaling krijgt elk centrum dezelfde behandeling voor een verschillende opgave.",
-  "volgt": "Ambitieniveaus worden in dialoog vastgelegd tussen coördinator, diensten en directie, en periodiek herbevestigd.",
+  "volgt": "Ambitieniveaus worden in dialoog voorbereid door coördinator, diensten en directie, op directieniveau vastgelegd en periodiek herbevestigd.",
   "s": [
    [
     "9.1 Niet elk domein vraagt dezelfde ambitie",
-    45
+    40
    ],
    [
     "9.2 Het gesprek dat het model mogelijk maakt",
-    46
+    41
    ],
    [
     "9.3 Wat dit van de directie vraagt",
-    46
+    41
    ]
   ]
  },
  "10": {
   "t": "Praktijkgemeenschap: wat er tussen professionals gebeurt",
   "w": "dia",
-  "pg": 48,
+  "pg": 43,
+  "sum": [
+   [
+    "In één zin.",
+    "Een competentiecentrum legitimeert zich door het soort vragen dat er gesteld mag worden en door de praktijken die er circuleren."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "Het maturiteitsmodel kijkt naar structuur en beantwoordt de vraag of een competentiecentrum kán functioneren. Deze tweede bril stelt een andere vraag: gebeurt er ook iets?"
+   ],
+   [
+    "Wat hieruit volgt.",
+    "In het gesprek over een competentiecentrum weegt de aanwezigheid van levende praktijken even zwaar als de aanwezigheid van structuur."
+   ]
+  ],
   "zin": "Een competentiecentrum legitimeert zich door het soort vragen dat er gesteld mag worden en door de praktijken die er circuleren.",
-  "waarom": "Het maturiteitsmodel kijkt naar structuur en beantwoordt de vraag of een competentiecentrum kán functioneren. Deze tweede bril stelt een andere vraag: gebeurt er ook iets?",
-  "volgt": "Bij de beoordeling van een competentiecentrum weegt de aanwezigheid van praktijken even zwaar als de aanwezigheid van structuur.",
+  "volgt": "In het gesprek over een competentiecentrum weegt de aanwezigheid van levende praktijken even zwaar als de aanwezigheid van structuur.",
   "s": [
    [
     "10.1 Een tweede ontwerpbril: van structuur naar praktijk",
-    48
+    43
    ],
    [
     "10.2 De ‘families’ en praktijken van een florerende kennisgemeenschap",
-    48
+    43
    ],
    [
     "10.3 Wat de drie families ons zeggen",
-    50
+    44
    ],
    [
     "10.4 Verhouding tot het maturiteitsmodel",
-    50
+    45
    ]
   ]
  },
  "11": {
   "t": "De toets: van praktijk terug naar bestaansreden",
   "w": "nota",
-  "pg": 51,
+  "pg": 46,
+  "sum": [
+   [
+    "In één zin.",
+    "Een bestaansreden die niet periodiek aan de praktijk wordt getoetst, verschraalt tot een gewoonte."
+   ],
+   [
+    "Waarom dit ertoe doet.",
+    "De redenering van deze nota loopt één richting uit: van bestaansreden naar ontwerp naar praktijk. Zonder een weg terug wordt de definitie uit deel 1 op termijn zelf een ingesleten pad, precies het mechanisme dat deel 3 beschrijft als blokkade voor samenwerking."
+   ],
+   [
+    "Wat hieruit volgt.",
+    "Het huis organiseert drie toetsen op drie niveaus, en herijkt op basis daarvan zowel het ontwerp als deze nota."
+   ]
+  ],
   "zin": "Een bestaansreden die niet periodiek aan de praktijk wordt getoetst, verschraalt tot een gewoonte.",
-  "waarom": "De redenering van deze nota loopt één richting uit: van bestaansreden naar ontwerp naar praktijk. Zonder een weg terug wordt de definitie uit deel 1 op termijn zelf een ingesleten pad, precies het mechanisme dat deel 3 beschrijft als blokkade voor samenwerking.",
   "volgt": "Het huis organiseert drie toetsen op drie niveaus, en herijkt op basis daarvan zowel het ontwerp als deze nota.",
   "s": [
    [
     "11.1 Twee lussen in één systeem",
-    52
+    46
    ],
    [
     "11.2 Drie toetsen op drie niveaus",
-    53
+    47
    ],
    [
     "11.3 De herijkingsclausule",
-    53
+    47
    ]
   ]
  }
@@ -613,50 +760,50 @@ const B=[
   "naam": "Fundament",
   "tekst": "Wat een competentiecentrum is, waartoe het bestaat, en waarom professionele domeinen zich vanzelf afsluiten. Deze drie delen leggen de basis: zij bepalen waarop alle ontwerpkeuzes verderop steunen: de definitie, de dubbele bestaansreden, en het mechanisme waarlangs gewoonten vanzelfsprekend worden.",
   "pg": 6,
-  "tot": 19,
   "d": [
    1,
    2,
    3
-  ]
+  ],
+  "tot": 17
  },
  {
   "rom": "Beweging II",
   "delen": "delen 4 en 5",
   "naam": "Diagnose",
   "tekst": "Waar de spanning tussen diensten en competentiecentra vandaan komt, en waarom zij in dit huis scherper wordt gevoeld. Deel 4 benoemt vier samenhangende breuklijnen. Deel 5 plaatst die diagnose in onze eigen context, met wat andere huizen doen en met wat wij in 2023 zelf hebben overgenomen.",
-  "pg": 20,
-  "tot": 28,
+  "pg": 18,
   "d": [
    4,
    5
-  ]
+  ],
+  "tot": 25
  },
  {
   "rom": "Beweging III",
   "delen": "delen 6 tot 8",
   "naam": "Ontwerp",
   "tekst": "Wie de opdracht draagt, hoe volwassen een centrum is, en hoe wij het inrichten. Deze drie delen leveren het lidmaatschap, de maturiteitslens en de governance-architectuur waarmee de breuklijnen zich laten herstellen.",
-  "pg": 29,
-  "tot": 43,
+  "pg": 26,
   "d": [
    6,
    7,
    8
-  ]
+  ],
+  "tot": 38
  },
  {
   "rom": "Beweging IV",
   "delen": "delen 9 tot 11",
   "naam": "Toepassing en herijking",
   "tekst": "Welke ambitie wij per centrum kiezen, wat er werkelijk gebeurt tussen professionals, en hoe wij dat alles toetsen. De laatste beweging brengt de nota terug naar de bestaansreden waarmee zij begon, en organiseert de correctie die voorkomt dat dit ontwerp zelf een ingesleten pad wordt.",
-  "pg": 44,
-  "tot": 53,
+  "pg": 39,
   "d": [
    9,
    10,
    11
-  ]
+  ],
+  "tot": 49
  }
 ];
 const VOORAF=[
@@ -760,6 +907,7 @@ function drawVooraf(){
   });
 }
 
+function SP(q){return (q[0]?'<b>'+q[0]+'</b> ':'')+q[1];}
 function draw(l, open){
   document.querySelectorAll('.sel').forEach(e=>e.classList.remove('on'));
   (SEL[l]||[]).forEach(k=>document.getElementById(k).classList.add('on'));
@@ -775,10 +923,9 @@ function draw(l, open){
     const c=D[k];
     h+='<div class="ch" data-k="'+k+'"><button aria-expanded="false"><span class="cht"><span class="nr">'+k+'</span><span>'+c.t+'</span><span class="pl">+</span></span>'
       +'<span class="who"><i style="background:'+WIE[c.w][1]+'"></i>'+WIE[c.w][0]+'</span>'
-      +'<span class="sp"><b>In één zin.</b> '+c.zin+'</span></button>'
+      +'<span class="sp">'+SP(c.sum[0])+'</span></button>'
       +'<div class="more">'
-      +'<p class="sp"><b>Waarom dit ertoe doet.</b> '+c.waarom+'</p>'
-      +'<p class="sp"><b>Wat hieruit volgt.</b> '+c.volgt+'</p>'
+      + c.sum.slice(1).map(function(q){return '<p class="sp">'+SP(q)+'</p>';}).join('')
       +'<p class="lbl">De opbouw van dit hoofdstuk</p><ul class="subs">'
       + c.s.map(x=>'<li><a data-titel="'+x[0]+'" href="'+NOTA+'#page='+x[1]+'" target="_blank" rel="noopener">'+x[0]+'<span class="pp">p.&nbsp;'+x[1]+'</span></a></li>').join('')
       +'</ul>'
@@ -795,7 +942,7 @@ function draw(l, open){
   });
   if(open){const c=D[open];
     setCap(b.rom+' &nbsp;\u00b7&nbsp; deel '+open, c.t,
-      '<b>In één zin.</b> '+c.zin, c.s.map(function(x){
+      SP(c.sum[0]), c.s.map(function(x){
         const i=x[0].indexOf(' ');return [x[0].slice(0,i), x[0].slice(i+1)];}));}
 }
 document.querySelectorAll('.band').forEach(b=>b.onclick=()=>{
@@ -870,7 +1017,7 @@ const DENKERS=[
   57
  ],
  [
-  "Chris Argyris en Donald Schön",
+  "Chris Argyris & Donald Schön",
   "hoe voorkomt een organisatie dat zij haar eigen vanzelfsprekendheden bevestigt?",
   "Organisaties verbeteren voortdurend hun uitvoering. Veel moeilijker is het om de uitgangspunten achter die uitvoering opnieuw ter discussie te stellen.",
   "Hun bijdrage aan deze nota",
