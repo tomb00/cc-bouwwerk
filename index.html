@@ -5,70 +5,122 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Het bouwwerk — competentiecentra UPC KU Leuven</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
 :root{
-  --paper:#FBFAF7; --ink:#14161A; --soft:#6B6F76; --hair:#DCD8D1;
-  --c1:#16233F; --c2:#24365A; --c3:#365075; --c4:#4E6C93; --c5:#7A94B5;
-  --acc:#B5502A;
+  --paper:#FBFAF7; --ink:#191B1E; --soft:#6E6C66; --hair:#DFDACF; --panel:#F2EFE8;
+  --kern:#0C1424; --L0:#16233F; --L1:#2B4166; --L2:#41608C; --L3:#7590B4; --acc:#B5502A; --grijs:#8A8F98;
+  --serif:Spectral,Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--paper);color:var(--ink)}
-body{font:16px/1.62 "Iowan Old Style",Georgia,"Times New Roman",serif;-webkit-font-smoothing:antialiased}
-.sans{font-family:"Helvetica Neue",Arial,system-ui,sans-serif}
-.wrap{max-width:1280px;margin:0 auto;padding:0 40px 90px}
+body{font:400 17px/1.66 var(--serif);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1300px;margin:0 auto;padding:0 40px 96px}
 
-header{padding:56px 0 26px;border-bottom:1px solid var(--hair);display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
-h1{font-size:40px;line-height:1.08;margin:0;font-weight:400;letter-spacing:-.3px}
+/* ---- kop ---- */
+header{padding:56px 0 22px;border-bottom:1px solid var(--hair);
+  display:flex;justify-content:space-between;align-items:flex-end;gap:36px;flex-wrap:wrap}
+h1{font:300 40px/1.1 var(--serif);margin:0;letter-spacing:-.012em}
 h1 em{font-style:italic;color:var(--acc)}
-.stand{margin:10px 0 0;color:var(--soft);font-size:17px;max-width:52ch}
-nav{display:flex;gap:26px;padding-bottom:4px}
-nav button{background:none;border:0;padding:0 0 4px;font:inherit;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
-  font-family:"Helvetica Neue",Arial,sans-serif;color:var(--soft);cursor:pointer;border-bottom:1px solid transparent}
+.stand{margin:12px 0 0;color:var(--soft);font:400 15px/1.5 var(--sans)}
+nav{display:flex;gap:26px;padding-bottom:5px}
+nav button{background:none;border:0;padding:0 0 5px;cursor:pointer;
+  font:500 11.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--soft);
+  border-bottom:1px solid transparent}
 nav button:hover{color:var(--ink)}
 nav button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--acc)}
 
-.grid{display:grid;grid-template-columns:minmax(420px,1fr) minmax(340px,.92fr);gap:56px;padding-top:44px;align-items:start}
-@media(max-width:980px){.grid{grid-template-columns:1fr;gap:34px}}
+.grid{display:grid;grid-template-columns:minmax(380px,1fr) minmax(400px,1.04fr);gap:56px;padding-top:40px;align-items:start}
+@media(max-width:1000px){.grid{grid-template-columns:1fr;gap:32px}}
 
+/* ---- figuur ---- */
 svg{width:100%;height:auto;display:block;overflow:visible}
 .band{cursor:pointer}
-.band:hover{filter:brightness(1.1)}
-.sel{fill:none;stroke:var(--acc);stroke-width:1.3;pointer-events:none;opacity:0;transition:opacity .3s}
+.band:hover{filter:brightness(1.09)}
+.sel{fill:none;stroke:var(--acc);stroke-width:1.4;pointer-events:none;opacity:0;transition:opacity .28s}
 .sel.on{opacity:1}
-.rlabel{font-family:"Helvetica Neue",Arial,sans-serif;font-size:13.5px;letter-spacing:.24em;text-transform:uppercase;pointer-events:none;transition:opacity .28s}
-.rnum{font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.2em;pointer-events:none}
-.corelab{font-family:"Helvetica Neue",Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase;pointer-events:none}
-.cap{font-style:italic;fill:var(--acc);font-size:15px}
+.rlabel{font:500 13px var(--sans);letter-spacing:.2em;text-transform:uppercase;pointer-events:none}
+.mini{font:500 10.5px var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.cap{font:300 italic 13.5px var(--serif)}
+.node{cursor:pointer}
+.node circle{stroke:var(--paper);stroke-width:2.5;transition:r .15s}
+.node text{font:600 13px var(--sans);pointer-events:none}
+.node:hover circle{r:20}
+.node.act circle{stroke:var(--acc);stroke-width:3}
+.loopbtn{cursor:pointer}
 
-.panel{border-top:2px solid var(--ink);padding-top:20px;min-height:520px}
-.kick{font-family:"Helvetica Neue",Arial,sans-serif;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin:0 0 8px}
-.panel h2{font-size:29px;line-height:1.16;margin:0 0 12px;font-weight:400}
-.lede{color:#3B3F45;margin:0 0 26px;font-size:17px}
-.grp{margin:0 0 22px}
-.gh{font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);
-  padding-bottom:6px;border-bottom:1px solid var(--hair);margin:0 0 8px;display:flex;justify-content:space-between}
-ul{list-style:none;margin:0;padding:0}
-li{padding:5px 0;display:flex;gap:14px;align-items:baseline}
-li .loc{font-family:"Helvetica Neue",Arial,sans-serif;font-size:11.5px;color:var(--soft);white-space:nowrap;min-width:74px;letter-spacing:.04em}
-li .txt{font-size:16px}
-.jump{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px;padding-top:16px;border-top:1px solid var(--hair)}
-.jump button{background:none;border:1px solid var(--hair);padding:6px 12px;font:inherit;font-size:13.5px;cursor:pointer;color:var(--soft)}
-.jump button:hover{border-color:var(--ink);color:var(--ink)}
-.jump i{width:9px;height:9px;display:inline-block;margin-right:8px;border-radius:50%}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:30px;padding-top:15px;border-top:1px solid var(--hair);
+  font:400 12px var(--sans);color:var(--soft)}
+.legend i{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:8px}
+.intro{max-width:62ch;color:#3D3B36;margin:24px 0 0;font-size:15.5px;line-height:1.62}
 
-table{width:100%;border-collapse:collapse}
-th{font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);
-  text-align:left;padding:0 14px 9px 0;border-bottom:1px solid var(--ink);font-weight:400}
-td{padding:14px 14px 14px 0;border-bottom:1px solid var(--hair);vertical-align:top;font-size:16px}
-td .m{color:var(--soft);font-size:14.5px}
-.state{font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
-.state.open{color:var(--acc)}
-.state.done{color:#3E6B4E}
-.state.arch{color:#A6A29B}
+/* ---- paneel ---- */
+.panel{border-top:2px solid var(--ink);padding-top:20px;min-height:640px}
+.kick{font:500 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin:0 0 14px}
+.panel h2,.tabhead h2{font:300 34px/1.1 var(--serif);margin:0 0 16px;letter-spacing:-.01em;text-wrap:balance}
+.tabhead{padding-top:44px;max-width:66ch}
+.bsum{font-size:17.5px;line-height:1.62;color:#2A2C30;margin:0;max-width:60ch}
+.bsrc{margin:14px 0 0}
+.bsrc a,.open a{font:500 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--acc);text-decoration:none;border-bottom:1px solid rgba(181,80,42,.35);padding-bottom:2px}
+.bsrc a:hover,.open a:hover{border-bottom-color:var(--acc)}
+.count{font:500 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--soft);
+  margin:34px 0 0;padding-top:16px;border-top:1px solid var(--hair)}
+
+.ch{border-bottom:1px solid var(--hair)}
+.ch>button{width:100%;background:none;border:0;text-align:left;padding:16px 0 15px;cursor:pointer;font:inherit;display:block}
+.ch>button:hover .cht span:nth-child(2){color:var(--acc)}
+.cht{display:flex;gap:14px;align-items:baseline;font:400 19px/1.28 var(--serif)}
+.cht .nr{font:500 12px var(--sans);color:var(--soft);flex:none;width:20px}
+.cht .pl{margin-left:auto;font:400 17px/1 var(--sans);color:var(--soft);flex:none}
+.who{display:flex;align-items:center;gap:8px;margin:9px 0 0;
+  font:400 11px/1 var(--sans);letter-spacing:.09em;color:var(--soft)}
+.ch>button .who{margin-left:34px}
+.who i{width:7px;height:7px;border-radius:50%;display:block;flex:none}
+/* de drie paragrafen van de managementsamenvatting: één en dezelfde vorm */
+.sp{display:block;margin:14px 0 0;font:400 16px/1.6 var(--serif);color:#2A2C30;max-width:58ch}
+.sp b{font-weight:600;color:var(--ink)}
+.ch>button .sp{margin-left:34px}
+.more{display:none;padding:0 0 24px 34px;max-width:58ch}
+.ch.open>button{padding-bottom:0}
+.ch.open .more{display:block}
+.ch.open .pl{color:var(--acc)}
+.more p.lbl{font:500 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--soft);margin:26px 0 8px}
+.more p.open{margin:22px 0 0}
+blockquote.def{margin:16px 0 0;padding:18px 22px;background:var(--panel);
+  border-left:2px solid var(--L2);font:400 17px/1.6 var(--serif);color:#2A2C30}
+.dtab{width:100%;border-collapse:collapse;margin:14px 0 0;font:400 15.5px/1.5 var(--serif)}
+.dtab td{border-top:1px solid var(--hair);padding:11px 0;vertical-align:baseline}
+.dtab tr:last-child td{border-bottom:1px solid var(--hair)}
+.dtab td.wie{width:38%;padding-left:18px}
+.dtab .who{margin:0}
+.subs{list-style:none;margin:4px 0 0;padding:0}
+.subs li+li{border-top:1px solid var(--hair)}
+.subs a{display:flex;gap:14px;align-items:baseline;font-size:15.5px;color:#2A2C30;text-decoration:none;padding:8px 0}
+.subs a:hover{color:var(--acc)}
+.subs .pp{margin-left:auto;font:400 11.5px var(--sans);color:var(--soft);flex:none;font-variant-numeric:tabular-nums}
+.subs a:hover .pp{color:var(--acc)}
+
+/* ---- bijlagen ---- */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:46px 44px;padding-top:46px}
+.card{border-top:1px solid var(--ink);padding-top:14px}
+.card h3{font:400 21px/1.24 var(--serif);margin:0}
+.card .cq{font:400 16px/1.5 var(--serif);color:var(--acc);margin:5px 0 0}
+.card .sp{margin:15px 0 0;max-width:none}
+#verb{padding-top:40px;max-width:78ch}
+.vb{border-top:1px solid var(--hair);padding:20px 0;display:flex;gap:24px;align-items:baseline}
+.vb:last-child{border-bottom:1px solid var(--hair)}
+.vb .n{font:500 12px var(--sans);color:var(--acc);flex:none;width:24px;font-variant-numeric:tabular-nums}
+.vb .sp{margin:0;max-width:none}
 .hidden{display:none}
-.foot{margin-top:46px;padding-top:14px;border-top:1px solid var(--hair);font-size:13px;color:#A6A29B;
-  font-family:"Helvetica Neue",Arial,sans-serif;letter-spacing:.04em}
-.intro{max-width:70ch;color:#3B3F45;margin:38px 0 0}
+.foot{margin-top:52px;padding-top:16px;border-top:1px solid var(--hair);font:400 12.5px var(--sans);color:#A6A29B}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
@@ -76,159 +128,689 @@ td .m{color:var(--soft);font-size:14.5px}
 
 <header>
   <div>
-    <h1>Het bouwwerk<br><em>vijf ringen rond één bestaansreden</em></h1>
-    <p class="stand">Dossier competentiecentra · UPC KU Leuven</p>
+    <h1>Het bouwwerk<br><em>vier bewegingen, elf delen, twee lussen terug</em></h1>
+    <p class="stand">De kunde van het huis · visienota competentiecentra · UPC KU Leuven · versie 7</p>
   </div>
   <nav>
     <button data-v="ring" aria-current="true">Het bouwwerk</button>
-    <button data-v="doc" aria-current="false">Documenten</button>
-    <button data-v="bes" aria-current="false">Wat openstaat</button>
+    <button data-v="denk" aria-current="false">Denkers</button>
+    <button data-v="verb" aria-current="false">Verbintenissen</button>
   </nav>
 </header>
 
-<!-- ============================ RINGEN ============================ -->
 <section id="v-ring">
 <div class="grid">
   <div>
-    <svg viewBox="0 0 820 866" role="img" aria-label="Vijf concentrische ringen rond de bestaansreden">
+    <svg viewBox="30 46 760 812" role="img" aria-label="Vier bewegingen rond de aanloop van de nota, met elf delen en twee lussen terug">
       <defs>
-        <marker id="tip" markerWidth="12" markerHeight="12" refX="7" refY="4" orient="auto">
-          <path d="M0,0 L8,4 L0,8 z" fill="#B5502A"/>
-        </marker>
-        <path id="a2" d="M 272,410 A 138,138 0 0 1 548,410"/>
-        <path id="a3" d="M 204,410 A 206,206 0 0 1 616,410"/>
-        <path id="a4" d="M 136,410 A 274,274 0 0 1 684,410"/>
-        <path id="a5" d="M 68,410  A 342,342 0 0 1 752,410"/>
+        <marker id="tip" markerWidth="11" markerHeight="11" refX="6.5" refY="3.6" orient="auto"><path d="M0,0 L7.4,3.6 L0,7.2 z" fill="#B5502A"/></marker>
+        <marker id="tipd" markerWidth="11" markerHeight="11" refX="6.5" refY="3.6" orient="auto"><path d="M0,0 L7.4,3.6 L0,7.2 z" fill="#8A8F98"/></marker>
+        <path id="p0" d="M 304.8,376.7 A 112,112 0 0 1 515.2,376.7"/>
+        <path id="p1" d="M 242.7,354.1 A 178,178 0 0 1 577.3,354.1"/>
+        <path id="p2" d="M 180.7,331.5 A 244,244 0 0 1 639.3,331.5"/>
+        <path id="p3" d="M 118.7,308.9 A 310,310 0 0 1 701.3,308.9"/>
       </defs>
 
-      <g id="rings">
-        <circle class="band" data-r="5" cx="410" cy="410" r="342" fill="none" stroke="var(--c5)" stroke-width="65"/>
-        <circle class="band" data-r="4" cx="410" cy="410" r="274" fill="none" stroke="var(--c4)" stroke-width="65"/>
-        <circle class="band" data-r="3" cx="410" cy="410" r="206" fill="none" stroke="var(--c3)" stroke-width="65"/>
-        <circle class="band" data-r="2" cx="410" cy="410" r="138" fill="none" stroke="var(--c2)" stroke-width="65"/>
-        <circle class="band" data-r="1" cx="410" cy="410" r="103" fill="var(--c1)" stroke="none"/>
+      <circle class="band" data-l="3" cx="410" cy="415" r="310" fill="none" stroke="var(--L3)" stroke-width="62"/>
+      <circle class="band" data-l="2" cx="410" cy="415" r="244" fill="none" stroke="var(--L2)" stroke-width="62"/>
+      <circle class="band" data-l="1" cx="410" cy="415" r="178" fill="none" stroke="var(--L1)" stroke-width="62"/>
+      <circle class="band" data-l="0" cx="410" cy="415" r="112" fill="none" stroke="var(--L0)" stroke-width="62"/>
+      <circle class="band" data-l="v" cx="410" cy="415" r="74" fill="var(--kern)"/>
+
+      <!-- de sleuf waardoor de twee lussen terugkeren -->
+      <rect x="386" y="546" width="48" height="164" fill="var(--paper)"/>
+      <g class="loopbtn" data-d="11">
+        <line x1="422" y1="708" x2="422" y2="550" stroke="var(--acc)" stroke-width="2.2" marker-end="url(#tip)"/>
+        <line x1="398" y1="708" x2="398" y2="632" stroke="var(--grijs)" stroke-width="1.8" stroke-dasharray="6 6" marker-end="url(#tipd)"/>
+        <rect x="380" y="546" width="62" height="164" fill="transparent"/>
+      </g>
+      <text class="mini" x="374" y="794" text-anchor="end" fill="var(--grijs)">Binnenlus</text>
+      <text class="cap" x="374" y="816" text-anchor="end" fill="var(--grijs)">beter werken binnen</text>
+      <text class="cap" x="374" y="834" text-anchor="end" fill="var(--grijs)">het bestaande ontwerp</text>
+      <text class="mini" x="446" y="794" fill="var(--acc)">Buitenlus</text>
+      <text class="cap" x="446" y="816" fill="var(--acc)">terug naar de bestaansreden,</text>
+      <text class="cap" x="446" y="834" fill="var(--acc)">tot in het fundament</text>
+
+      <circle class="sel" id="sv" cx="410" cy="415" r="74"/>
+      <circle class="sel" id="s0a" cx="410" cy="415" r="80"/><circle class="sel" id="s0b" cx="410" cy="415" r="144"/>
+      <circle class="sel" id="s1a" cx="410" cy="415" r="148"/><circle class="sel" id="s1b" cx="410" cy="415" r="208"/>
+      <circle class="sel" id="s2a" cx="410" cy="415" r="214"/><circle class="sel" id="s2b" cx="410" cy="415" r="274"/>
+      <circle class="sel" id="s3a" cx="410" cy="415" r="280"/><circle class="sel" id="s3b" cx="410" cy="415" r="340"/>
+
+      <text class="rlabel" fill="#fff"><textPath href="#p0" startOffset="50%" text-anchor="middle">I &#183; Fundament</textPath></text>
+      <text class="rlabel" fill="#fff"><textPath href="#p1" startOffset="50%" text-anchor="middle">II &#183; Diagnose</textPath></text>
+      <text class="rlabel" fill="#fff"><textPath href="#p2" startOffset="50%" text-anchor="middle">III &#183; Ontwerp</textPath></text>
+      <text class="rlabel" fill="#fff"><textPath href="#p3" startOffset="50%" text-anchor="middle">IV &#183; Toepassing en herijking</textPath></text>
+
+      <g class="band" data-l="v" style="cursor:pointer">
+        <text class="rlabel" x="410" y="411" text-anchor="middle" fill="#E9E4D8">Vooraf</text>
+        <text class="cap" x="410" y="436" text-anchor="middle" fill="#8E9AAE">p. 4&#8211;5</text>
       </g>
 
-      <!-- kanaal van de praktijk -->
-      <rect x="397" y="512" width="26" height="300" fill="var(--paper)"/>
-      <line x1="410" y1="800" x2="410" y2="522" stroke="var(--acc)" stroke-width="2" marker-end="url(#tip)"/>
-      <circle class="sel" id="s1" cx="410" cy="410" r="103"/>
-      <circle class="sel" id="s2a" cx="410" cy="410" r="105.5"/><circle class="sel" id="s2b" cx="410" cy="410" r="170.5"/>
-      <circle class="sel" id="s3a" cx="410" cy="410" r="173.5"/><circle class="sel" id="s3b" cx="410" cy="410" r="238.5"/>
-      <circle class="sel" id="s4a" cx="410" cy="410" r="241.5"/><circle class="sel" id="s4b" cx="410" cy="410" r="306.5"/>
-      <circle class="sel" id="s5a" cx="410" cy="410" r="309.5"/><circle class="sel" id="s5b" cx="410" cy="410" r="374.5"/>
-      <text class="cap" x="410" y="842" text-anchor="middle">de praktijk herijkt de bestaansreden</text>
-
-      <!-- ringlabels -->
-      <text class="rlabel" fill="#fff"><textPath href="#a2" startOffset="50%" text-anchor="middle">Identiteit</textPath></text>
-      <text class="rlabel" fill="#fff"><textPath href="#a3" startOffset="50%" text-anchor="middle">Ontwerp</textPath></text>
-      <text class="rlabel" fill="#fff"><textPath href="#a4" startOffset="50%" text-anchor="middle">Maturiteit</textPath></text>
-      <text class="rlabel" fill="#fff"><textPath href="#a5" startOffset="50%" text-anchor="middle">Praktijk</textPath></text>
-
-      <text class="corelab" x="410" y="398" text-anchor="middle" fill="#fff" font-size="15">Finaliteit</text>
-      <text class="rnum" x="410" y="430" text-anchor="middle" fill="#9FB0CC" font-size="12">waartoe bestaan we</text>
+      <g id="nodes"></g>
     </svg>
-    <p class="intro">Elke ring omsluit de vorige. Een organisatievorm die haar identiteit niet kent, en een identiteit die haar bestaansreden kwijt is, houden geen van beide stand. Klik een ring.</p>
-  </div>
 
+    <div class="legend">
+      <span><i style="background:#C9A227"></i>Wat deze nota vastlegt</span>
+      <span><i style="background:var(--acc)"></i>Wat het directiecomité beslist</span>
+      <span><i style="background:#3E6B4E"></i>Wat de dialoog met de centra invult</span>
+    </div>
+    <p class="intro">De nota kent vier bewegingen. Elke beweging draagt de volgende: het fundament draagt de diagnose, de diagnose draagt het ontwerp, het ontwerp draagt de toepassing. De vierde beweging sluit de kring met twee lussen terug. In het midden staat de aanloop van de nota; daaromheen bouwen de bewegingen zich op. Klik de kern, een beweging, een deel of de lussen; wat u leest is telkens de tekst van de nota zelf.</p>
+  </div>
   <div class="panel" id="panel"></div>
 </div>
 </section>
 
-<!-- ============================ DOCUMENTEN ============================ -->
-<section id="v-doc" class="hidden" style="padding-top:44px">
-  <table>
-    <thead><tr><th style="width:34%">Document</th><th style="width:14%">Ringen</th><th style="width:34%">Waarvoor het dient</th><th style="width:18%">Stand</th></tr></thead>
-    <tbody id="docs"></tbody>
-  </table>
-  <p class="intro">Eén document draagt het geheel; de andere verdiepen één ring. Wat geen ring bedient, hoort niet in het dossier.</p>
+<section id="v-denk" class="hidden">
+  <div class="tabhead">
+    <p class="kick">Bijlage 1 &nbsp;·&nbsp; p. 55&ndash;57</p>
+    <h2>Het denkteam achter deze nota</h2>
+    <p class="bsum">Deze nota vertrekt vanuit een expliciete ontwerplogica. De vraag hoe competentiecentra kunnen bijdragen aan kwaliteit, expertise en organisatieontwikkeling laat zich niet vanuit één discipline beantwoorden. Deze nota vertrekt daarom vanuit negen complementaire perspectieven. Elk van hen helpt een andere ontwerpvraag beantwoorden. Samen vormen zij geen model, maar een taal om ontwerpkeuzes bespreekbaar te maken.</p>
+    <p class="bsrc"><a href="visienota-v7.pdf#page=55" target="_blank" rel="noopener">Lees bijlage 1 in de nota &nbsp;·&nbsp; p.&nbsp;55&ndash;57 &rarr;</a></p>
+  </div>
+  <div class="cards" id="denkers"></div>
 </section>
 
-<!-- ============================ OPEN ============================ -->
-<section id="v-bes" class="hidden" style="padding-top:44px">
-  <table>
-    <thead><tr><th style="width:32%">Vraag</th><th style="width:12%">Ring</th><th style="width:38%">Waarom ze het bouwwerk raakt</th><th style="width:18%">Wanneer</th></tr></thead>
-    <tbody id="bes"></tbody>
-  </table>
-  <p class="intro">Zolang deze vragen openstaan, spreken de documenten die ze veronderstellen elkaar tegen. Daar komt het gevoel van onsamenhangendheid vandaan, en niet uit de volgorde van de hoofdstukken.</p>
+<section id="v-verb" class="hidden">
+  <div class="tabhead">
+    <p class="kick">Bijlage 2 &nbsp;·&nbsp; p. 58</p>
+    <h2>Wat het huis zich verbindt te doen</h2>
+    <p class="bsum">Elk deel van deze nota eindigt met <em>Wat hieruit volgt</em>. Samen vormen die elf zinnen wat dit huis zich met deze nota verbindt te doen.</p>
+    <p class="bsrc"><a href="visienota-v7.pdf#page=58" target="_blank" rel="noopener">Lees bijlage 2 in de nota &nbsp;·&nbsp; p.&nbsp;58 &rarr;</a></p>
+  </div>
+  <div id="verb"></div>
 </section>
 
-<p class="foot">Tom Braes · directeur patiëntenzorg en aandachtsdirecteur competentiecentra · augustus 2026</p>
+<p class="foot">De volledige nota staat achter deze visual · Tom Braes, directeur patiëntenzorg en aandachtsdirecteur competentiecentra</p>
 </div>
 
 <script>
-const C=["","var(--c1)","var(--c2)","var(--c3)","var(--c4)","var(--c5)"];
-const R={
-1:{n:"Ring I",t:"Waartoe bestaan we?",k:"Finaliteit",
- l:"De bestaansreden gaat vóór de middelen. Zodra die vraag uit beeld raakt, gaat een vakgroep haar middelen verdedigen — en dat leest van buitenaf als protectionisme.",
- g:[["Visienota",[["1.1","Waarom een competentiecentrum bestaat: het argument dat we zelden maken"],["1.2","Middelen en bestaansreden"]]],
-    ["De paden van Maren",[["2.1","Waartoe een competentiecentrum bestaat"],["2.5","Middelen en bestaansreden"],["6","Gespreksvorm C — middelen en bestaansreden"],["6.1","De voorspelbare valstrik"]]]],
- z:[2,5]},
-2:{n:"Ring II",t:"Wie zijn we, en waar liggen onze grenzen?",k:"Identiteit",
- l:"Grenzen maken een vakgebied herkenbaar en gesloten tegelijk. Deze ring maakt dat bespreekbaar zonder het als onwil te benoemen.",
- g:[["Visienota",[["2.1","Hoe professionele identiteit werkt"],["2.2","Reflectie in ordes"],["2.3","Het immuunsysteem"]]],
-    ["De paden van Maren",[["2.2","Hoe identiteit grenzen produceert"],["2.3","De paden"],["2.4","Twee ordes van reflectie"],["3","Diagnose: hoe tolerant is het immuunsysteem?"],["3.1","De omgekeerde diagnose"],["4","Gespreksvorm A — de tractor en het pad"],["5","Gespreksvorm B — één vreemde vraag"],["7","Handleiding voor de gespreksleider"]]]],
- z:[1,3]},
-3:{n:"Ring III",t:"Welke organisatievorm draagt die identiteit?",k:"Ontwerp",
- l:"Hier vallen de keuzes: hoe de matrix bedoeld is, wie lid is, en wat een centrum mag beslissen. Dit is de ring waarin de twee assen elkaar kruisen.",
- g:[["Visienota",[["3.1","De matrix als ontwerpkeuze"],["3.4","Vier breuklijnen in één systeem"],["3.5","De gulden snede van de matrixorganisatie"],["4.2","Een organisatie in traditie én transitie"],["5.2","De holarchische logica"],["5.3","Een gelaagd model met twee vormen"],["6.2","Competentiecentra als commons"],["6.4","Zeven kerncomponenten van een werkbare governance-architectuur"]]],
-    ["Wat is een competentiecentrum?",[["2","De huidige definitie, gelezen"],["3","Vier scenario's, A tot D"],["4","De twee assen achter de scenario's"],["5","Waar deze vormen elders voorkomen"],["6","Vier vragen die de dialoog moet beslechten"]]]],
- z:[2,4]},
-4:{n:"Ring IV",t:"Hoe groeien we daarin?",k:"Maturiteit",
- l:"Vier dimensies om een centrum te situeren, en daarna de vraag welke maturiteit het nastreeft. Er is geen uniforme eindbestemming.",
- g:[["Visienota",[["7.1","Waarom een maturiteitslens"],["8.1","Besluitvormingscapaciteit"],["8.2","Capaciteitstoewijzing en prioritering"],["8.3","Professionele autoriteit en expertisepositie"],["8.4","Governance en verantwoording"],["9.1","Innovatie is geen aparte dimensie"],["10.4","Geen uniforme eindbestemming"],["10.5","Maturiteit als strategische positionering"]]]],
- z:[3,5]},
-5:{n:"Ring V",t:"Wat er tussen professionals circuleert",k:"Praktijk",
- l:"De buitenste ring raakt de wereld. Wat hier gebeurt, toetst elke ring naar binnen toe — tot aan de bestaansreden in het midden.",
- g:[["Visienota",[["11.2","De praktijken van een florerende kennisgemeenschap"],["11.3","Vijf ontwerpprincipes"],["11.4","De CoP-scan als dialooginstrument"],["12.1","Werkagenda: zes sporen, A tot F"]]],
-    ["Wat is een competentiecentrum?",[["7","Werkblok voor het atelier van 8 oktober"]]]],
- z:[4,1]}
+const NOTA="visienota-v7.pdf";
+const WIE={nota:["Deze nota","#C9A227"],dc:["Het directiecomité","var(--acc)"],dia:["De dialoog met de centra","#3E6B4E"]};
+const D={
+ "1": {
+  "t": "Wat een competentiecentrum is",
+  "w": "nota",
+  "pg": 7,
+  "zin": "Competentiecentra zijn de manier waarop dit huis ervoor zorgt dat expertise van het huis is, van het huis blijft, en buiten het huis als goede praktijk herkenbaar wordt.",
+  "waarom": "De omschrijving op ons intranet beschrijft een bemanningslogica. Wat wij vandaag van competentiecentra verwachten, veronderstelt een kennislogica. Zolang beide naast elkaar bestaan, rust elke afspraak over mandaat, capaciteit en governance op een onduidelijke grondslag.",
+  "volgt": "Het ziekenhuis hanteert vanaf nu één definitie van een competentiecentrum en belegt de bemanningsopdracht uitdrukkelijk elders.",
+  "s": [
+   [
+    "1.1 De vijf werkwoorden",
+    7
+   ],
+   [
+    "1.2 De vier kenmerken",
+    8
+   ],
+   [
+    "1.3 Waarom één domein, en toch interprofessioneel",
+    9
+   ],
+   [
+    "1.4 Verhouding tot de bestaande omschrijving",
+    10
+   ]
+  ]
+ },
+ "2": {
+  "t": "Waartoe competentiecentra bestaan",
+  "w": "nota",
+  "pg": 11,
+  "zin": "De werkelijkheid van elke patiënt is breder dan het domein van elke afzonderlijke discipline; samenwerking is daarmee een professionele opdracht.",
+  "waarom": "Interprofessionele samenwerking wordt meestal verdedigd met praktische argumenten: zij maakt zorg efficiënter, aangenamer en voorkomt dubbel werk. Er bestaat een fundamenteler argument, en dat argument draagt deze hele nota. Het maakt van samenwerking een rechtstreeks gevolg van de bestaansreden van zorgberoepen zelf. Tegelijk introduceert het een onderscheid dat in de rest van deze nota blijft terugkeren: dat tussen middelen en bestaansreden.",
+  "volgt": "Het ziekenhuis organiseert en beschermt ruimte waarin professionele perspectieven elkaar ontmoeten, bevragen en verrijken. Georganiseerde vreemdheid is een expliciete opdracht.",
+  "s": [
+   [
+    "2.1 Het argument in drie stappen",
+    12
+   ],
+   [
+    "2.2 Middelen en bestaansreden",
+    13
+   ],
+   [
+    "2.3 Georganiseerde vreemdheid als tweede bestaansreden",
+    13
+   ]
+  ]
+ },
+ "3": {
+  "t": "Paden en gewoonten: waarom grenzen ontstaan",
+  "w": "nota",
+  "pg": 15,
+  "zin": "Professionele gewoonten slijten in tot vanzelfsprekendheden; wat vanzelfsprekend is, verdwijnt uit het gesprek.",
+  "waarom": "Iedere zorgprofessional weet dat samenwerking noodzakelijk is. Toch blijken de grenzen tussen disciplines opmerkelijk hardnekkig. Dat is een voorspelbaar gevolg van hoe vakmanschap wordt opgebouwd en doorgegeven. Professionele gemeenschappen leren hun leden wat zij moeten doen én hoe zij naar de werkelijkheid kijken. Sommige aannames worden daardoor zo vanzelfsprekend dat niemand ze nog opmerkt. Dit deel verklaart hoe zulke grenzen ontstaan en waarom reflectie niet spontaan ontstaat, maar ontworpen moet worden.",
+  "volgt": "Gemengde samenstelling, externe stemmen en een andere context krijgen een vaste plaats in de agenda van elk competentiecentrum.",
+  "s": [
+   [
+    "3.1 Hoe vakmanschap zijn eigen grenzen produceert",
+    15
+   ],
+   [
+    "3.2 Het pad en de tractor",
+    16
+   ],
+   [
+    "3.3 Reflectie in twee ordes",
+    16
+   ],
+   [
+    "3.4 Professionele tolerantie",
+    18
+   ],
+   [
+    "3.5 Productieve disharmonie",
+    18
+   ]
+  ]
+ },
+ "4": {
+  "t": "Diagnose: spanning als ontwerpvraag",
+  "w": "dc",
+  "pg": 21,
+  "zin": "De spanning tussen diensten en competentiecentra volgt uit vier samenhangende breuklijnen: mandaat, inzet, besluit en proces. Herstel begint bij de dragende laag: het mandaat.",
+  "waarom": "Deel 3 verklaart waarom grenzen blijven bestaan wanneer niemand ze onderhoudt. Dit deel verklaart waarom spanning ontstaat, ook wanneer iedereen wél wil. Wat zich in de dagelijkse praktijk toont als wisselende betrokkenheid, frustratie of moeizame samenwerking, laat zich preciezer benoemen. Veel van die spanning komt voort uit de manier waarop de organisatie is ingericht. Dit deel levert de diagnose waarop alle ontwerpvoorstellen in deze nota steunen, en verklaart waarom sommige interventies weinig effect hebben zolang de onderliggende structurele vragen onbeantwoord blijven.",
+  "volgt": "De organisatie kiest expliciet hoe de verticale en de horizontale as zich tot elkaar verhouden, afhankelijk van de opgave, het risicoprofiel en het gewenste resultaat.",
+  "s": [
+   [
+    "4.1 De matrix als ontwerpkeuze",
+    21
+   ],
+   [
+    "4.2 Exploitatie en exploratie: spanning als systeemkenmerk",
+    21
+   ],
+   [
+    "4.3 Wanneer spanning naar mensen verschuift",
+    22
+   ],
+   [
+    "4.4 Vier breuklijnen in één systeem",
+    22
+   ],
+   [
+    "4.5 Werkbare asymmetrie",
+    23
+   ],
+   [
+    "4.6 Vier instrumenten, vier doorsneden",
+    24
+   ]
+  ]
+ },
+ "5": {
+  "t": "Ons ziekenhuis: traditie, transitie en professionele autonomie",
+  "w": "dc",
+  "pg": 25,
+  "zin": "In een professionele organisatie ontstaat gezag uit professionele geloofwaardigheid, meer dan uit positie.",
+  "waarom": "De spanning uit deel 4 bestaat in elke matrixorganisatie. Hoe sterk zij wordt ervaren, hangt af van de context. Drie kenmerken van UPC maken die spanning tegelijk groter en belangrijker: een professionele organisatievorm, een sterke traditie, en een omgeving in verandering. Een elegant organigram volstaat daarom niet; het ontwerp moet professioneel geloofwaardig zijn.",
+  "volgt": "Ontwerpkeuzes worden eerst verantwoord vanuit de spanning die zij helpen dragen, en pas daarna vanuit de structuur die zij creëren.",
+  "s": [
+   [
+    "5.1 Waar gezag vandaan komt",
+    25
+   ],
+   [
+    "5.2 Een organisatie tussen traditie én transitie",
+    25
+   ],
+   [
+    "5.3 Universitair karakter en hoog-autonome professionals",
+    26
+   ],
+   [
+    "5.4 Waar deze vormen elders voorkomen",
+    26
+   ],
+   [
+    "5.5 Onze eigen voorgeschiedenis",
+    27
+   ]
+  ]
+ },
+ "6": {
+  "t": "Lidmaatschap: wie de opdracht draagt",
+  "w": "dia",
+  "pg": 30,
+  "zin": "Een competentiecentrum draagt verantwoordelijkheid zodra duidelijk is wie die verantwoordelijkheid draagt; een gelaagd lidmaatschap maakt verschillen in tijd en engagement draagbaar.",
+  "waarom": "De vier breuklijnen convergeren in één onbeantwoorde vraag. Zolang lidmaatschap een impliciete combinatie blijft van betrokkenheid, beschikbaarheid en goodwill, zweven afspraken over mandaat, capaciteit en governance boven een onbepaalde groep.",
+  "volgt": "Het ziekenhuis kiest samen met de competentiecentra één taalregister voor lidmaatschap, en houdt dat  consequent aan.",
+  "s": [
+   [
+    "6.1 Lidmaatschap als expliciete rol",
+    30
+   ],
+   [
+    "6.2 Lidmaatschap als dubbele verankering",
+    30
+   ],
+   [
+    "6.3 Een gelaagd model van lidmaatschap",
+    31
+   ],
+   [
+    "6.4 Wat de dialoog beslecht",
+    31
+   ]
+  ]
+ },
+ "7": {
+  "t": "Maturiteit: vier dimensies",
+  "w": "dc",
+  "pg": 33,
+  "zin": "Competentiecentra ontwikkelen zich langs vier samenhangende dimensies: besluitvorming, capaciteit, autoriteit en governance. Volwassenheid ontstaat wanneer die vier elkaar beginnen te versterken.",
+  "waarom": "Competentiecentra verschillen sterk van elkaar. Die verschillen zeggen weinig over kwaliteit en veel over ontwikkelingsfase. Een maturiteitslens verschuift het gesprek van oordeel naar ontwerp en maakt zichtbaar waar de hefboom per centrum ligt.",
+  "volgt": "Elk centrum situeert zichzelf op de vier dimensies en spiegelt dat beeld aan diensthoofden, directie en collega-centra.",
+  "s": [
+   [
+    "7.1 Waarom een maturiteitslens",
+    33
+   ],
+   [
+    "7.2 Het model in één beeld",
+    33
+   ],
+   [
+    "7.3 Besluitvormingscapaciteit: van relationele invloed naar structureel mandaat",
+    34
+   ],
+   [
+    "7.4 Capaciteitstoewijzing: van individuele loyaliteit naar collectief beheer",
+    35
+   ],
+   [
+    "7.5 Professionele autoriteit: van persoon naar instituut",
+    36
+   ],
+   [
+    "7.6 Governance en verantwoording: van vrijblijvend overleg naar lerend systeem",
+    37
+   ],
+   [
+    "7.7 Samenhang tussen de dimensies",
+    38
+   ],
+   [
+    "7.8 Innovatie als gevolg van ontwerp",
+    38
+   ]
+  ]
+ },
+ "8": {
+  "t": "Ontwerpprincipes en governance-architectuur",
+  "w": "dc",
+  "pg": 40,
+  "zin": "Expliciete governance is de voorwaarde voor professionele ruimte: heldere kaders ontlasten samenwerking en maken haar voorspelbaar.",
+  "waarom": "Maturiteit volgt uit bewuste ontwerpkeuzes. Zonder expliciete governance dragen individuen de spanning, verschuiven verantwoordelijkheden en ontstaat willekeur.",
+  "volgt": "Elk competentiecentrum beschikt over de zeven kerncomponenten; de drie ontwerpprincipes bepalen hoe die worden ingevuld.",
+  "s": [
+   [
+    "8.1 Waarom governance professionele ruimte creëert",
+    40
+   ],
+   [
+    "8.2 Drie ontwerpprincipes",
+    40
+   ],
+   [
+    "8.3 Zeven kerncomponenten",
+    42
+   ],
+   [
+    "8.4 Samenhang",
+    42
+   ]
+  ]
+ },
+ "9": {
+  "t": "Ambitie per centrum",
+  "w": "dc",
+  "pg": 45,
+  "zin": "De gewenste maturiteit is een strategische keuze per domein, bepaald door het tempo waarin de kennis verandert en door het belang van dat domein voor het ziekenhuis.",
+  "waarom": "\u201cWe willen effectievere competentiecentra\u201d is een wens. Dit deel vertaalt die wens naar keuzes over waar, hoe en wanneer we investeren. Zonder die vertaling krijgt elk centrum dezelfde behandeling voor een verschillende opgave.",
+  "volgt": "Ambitieniveaus worden in dialoog vastgelegd tussen coördinator, diensten en directie, en periodiek herbevestigd.",
+  "s": [
+   [
+    "9.1 Niet elk domein vraagt dezelfde ambitie",
+    45
+   ],
+   [
+    "9.2 Het gesprek dat het model mogelijk maakt",
+    46
+   ],
+   [
+    "9.3 Wat dit van de directie vraagt",
+    46
+   ]
+  ]
+ },
+ "10": {
+  "t": "Praktijkgemeenschap: wat er tussen professionals gebeurt",
+  "w": "dia",
+  "pg": 48,
+  "zin": "Een competentiecentrum legitimeert zich door het soort vragen dat er gesteld mag worden en door de praktijken die er circuleren.",
+  "waarom": "Het maturiteitsmodel kijkt naar structuur en beantwoordt de vraag of een competentiecentrum kán functioneren. Deze tweede bril stelt een andere vraag: gebeurt er ook iets?",
+  "volgt": "Bij de beoordeling van een competentiecentrum weegt de aanwezigheid van praktijken even zwaar als de aanwezigheid van structuur.",
+  "s": [
+   [
+    "10.1 Een tweede ontwerpbril: van structuur naar praktijk",
+    48
+   ],
+   [
+    "10.2 De ‘families’ en praktijken van een florerende kennisgemeenschap",
+    48
+   ],
+   [
+    "10.3 Wat de drie families ons zeggen",
+    50
+   ],
+   [
+    "10.4 Verhouding tot het maturiteitsmodel",
+    50
+   ]
+  ]
+ },
+ "11": {
+  "t": "De toets: van praktijk terug naar bestaansreden",
+  "w": "nota",
+  "pg": 51,
+  "zin": "Een bestaansreden die niet periodiek aan de praktijk wordt getoetst, verschraalt tot een gewoonte.",
+  "waarom": "De redenering van deze nota loopt één richting uit: van bestaansreden naar ontwerp naar praktijk. Zonder een weg terug wordt de definitie uit deel 1 op termijn zelf een ingesleten pad, precies het mechanisme dat deel 3 beschrijft als blokkade voor samenwerking.",
+  "volgt": "Het huis organiseert drie toetsen op drie niveaus, en herijkt op basis daarvan zowel het ontwerp als deze nota.",
+  "s": [
+   [
+    "11.1 Twee lussen in één systeem",
+    52
+   ],
+   [
+    "11.2 Drie toetsen op drie niveaus",
+    53
+   ],
+   [
+    "11.3 De herijkingsclausule",
+    53
+   ]
+  ]
+ }
 };
-const DOCS=[
- ["Your mind makes it real","visienota competentiecentra, werkversie 20 augustus 2026","I · II · III · IV · V","Draagt het volledige bouwwerk. Twaalf delen, van finaliteit naar werkagenda.","Herschikt","done"],
- ["De paden van Maren","werkdossier identiteit en finaliteit","I · II","Verdiept de kern en de tweede ring. Drie gespreksvormen en een handleiding.","Klaar","done"],
- ["Wat is een competentiecentrum?","dialoogdossier, variant B","III · V","Verdiept de derde ring. Vier scenario's, de plotkaart, zeven vormen elders.","Klaar voor 8 oktober","done"],
- ["Kernteams en coördinatoren","samen leiden, helder mandaat — 11 december 2025","III","Legt het instructierecht vast in drie toepassingen en vier domeinen.","Geschreven","done"],
- ["DC-covernota kernteams en competentiecentra","12 februari 2025","III","Vacaturehouderschap, talentcoaching, loopbaangesprekken.","Goedgekeurd","done"],
- ["Sturing van de organisatie en ploegopstelling","7 maart 2023","—","Vertrekpunt van de ontwikkelingslijn. De vragen zijn elders beantwoord.","Vervangen","arch"]
+const B=[
+ {
+  "rom": "Beweging I",
+  "delen": "delen 1 tot 3",
+  "naam": "Fundament",
+  "tekst": "Wat een competentiecentrum is, waartoe het bestaat, en waarom professionele domeinen zich vanzelf afsluiten. Deze drie delen leggen de basis: zij bepalen waarop alle ontwerpkeuzes verderop steunen: de definitie, de dubbele bestaansreden, en het mechanisme waarlangs gewoonten vanzelfsprekend worden.",
+  "pg": 6,
+  "tot": 19,
+  "d": [
+   1,
+   2,
+   3
+  ]
+ },
+ {
+  "rom": "Beweging II",
+  "delen": "delen 4 en 5",
+  "naam": "Diagnose",
+  "tekst": "Waar de spanning tussen diensten en competentiecentra vandaan komt, en waarom zij in dit huis scherper wordt gevoeld. Deel 4 benoemt vier samenhangende breuklijnen. Deel 5 plaatst die diagnose in onze eigen context, met wat andere huizen doen en met wat wij in 2023 zelf hebben overgenomen.",
+  "pg": 20,
+  "tot": 28,
+  "d": [
+   4,
+   5
+  ]
+ },
+ {
+  "rom": "Beweging III",
+  "delen": "delen 6 tot 8",
+  "naam": "Ontwerp",
+  "tekst": "Wie de opdracht draagt, hoe volwassen een centrum is, en hoe wij het inrichten. Deze drie delen leveren het lidmaatschap, de maturiteitslens en de governance-architectuur waarmee de breuklijnen zich laten herstellen.",
+  "pg": 29,
+  "tot": 43,
+  "d": [
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "rom": "Beweging IV",
+  "delen": "delen 9 tot 11",
+  "naam": "Toepassing en herijking",
+  "tekst": "Welke ambitie wij per centrum kiezen, wat er werkelijk gebeurt tussen professionals, en hoe wij dat alles toetsen. De laatste beweging brengt de nota terug naar de bestaansreden waarmee zij begon, en organiseert de correctie die voorkomt dat dit ontwerp zelf een ingesleten pad wordt.",
+  "pg": 44,
+  "tot": 53,
+  "d": [
+   9,
+   10,
+   11
+  ]
+ }
 ];
-const BES=[
- ["Is een competentiecentrum een beroepsgroep of een vakgebied?","III","De kernteamnota leidt de samenstelling af uit de beroepsgroepen; het dialoogdossier redeneert vanuit het vakgebied. De expertisezoeker werkt alleen bij het tweede.","Op 8 oktober"],
- ["Krijgt de horizontale as een eigen adres bij een geschil?","III · IV","Elk geschil op het kruispunt eindigt nu bij een orgaan uit de verticale lijn. Zeggenschap die bij de eerste toets wordt ingetrokken, bestaat niet.","Volgende versie kernteamnota"],
- ["Welke middelen horen bij het mandaat?","IV","Tien procent vrijstelling voor het derde kernteamlid, veertig uur ontwikkeltijd per VTE — en geen enkel getal voor de rol van CC-verantwoordelijke.","Begrotingsronde"],
- ["Waar hangen de stuurgroepen vandaag?","IV","Sinds 2023 het vierde structuurelement, in geen enkel recenter stuk hernomen.","Vóór de kennisname"],
- ["Welke maturiteit streeft elk centrum na?","IV · V","Zonder keuze per centrum blijft het maturiteitsmodel een beschrijving in plaats van een opdracht.","Na 8 oktober"]
+const VOORAF=[
+ {
+  "t": "Proloog. De spanning die iedereen herkent",
+  "pg": 4,
+  "lead": "Kwart voor negen, donderdagochtend. De coördinator van een competentiecentrum wacht op vier mensen. Twee komen niet: op hun afdeling liep een opname uit die niet kon wachten. Het overleg gaat door met de helft, het dossier schuift een maand op, en niemand heeft hier iets verkeerd gedaan.",
+  "rest": [
+   "Competentiecentra en kernteams delen dezelfde mensen, dezelfde uren en dezelfde aandacht. Waar klinische expertise en operationele continuïteit elkaar raken, ontstaat spanning: over prioriteiten, over beslissingsruimte en over wat er gebeurt wanneer beide partijen gelijk hebben.",
+   "Elke afdeling kent het, elk centrum kent het. We lezen het soms als een samenwerkingsprobleem, als gebrek aan afstemming of als onvoldoende engagement.",
+   "Deze nota leest het als ontwerpopgave. Twee legitieme opdrachten vragen dezelfde mensen en dezelfde uren. Waar ze elkaar raken, hoort het te schuren.",
+   "Dat is meteen een geruststellende lezing. Een samenwerkingsprobleem vraagt betere mensen. Een ontwerpprobleem vraagt een beter ontwerp. En een ontwerp kunnen we samen maken en bijschaven."
+  ]
+ },
+ {
+  "t": "Hoe deze nota te gebruiken",
+  "pg": 4,
+  "lead": "Deze nota bepaalt waartoe competentiecentra bestaan en welke ontwerpkeuzes daaruit volgen. U kunt haar op twee manieren lezen: van voor naar achter, als een redenering die stap voor stap wordt opgebouwd, of per deel, als naslagwerk rond één ontwerpvraag.",
+  "rest": [
+   "Negen denkkaders werpen elk een ander licht op dezelfde werkelijkheid. Samen behandelen zij vragen over structuur, samenwerking, spanning, mandaat, professionele identiteit en leren. Hun portretten staan in bijlage 1.",
+   "Eén tabel keert in deze nota tweemaal terug, vooraan en achteraan, met dezelfde rijen. Zij houdt bij wie waarover beslist."
+  ],
+  "tabel": [
+   [
+    "De finaliteit en de definitie van een competentiecentrum",
+    "nota"
+   ],
+   [
+    "De verhouding tussen de verticale en de horizontale as: adviseren of sturen",
+    "dc"
+   ],
+   [
+    "Lidmaatschap, samenstelling en afbakening per centrum",
+    "dia"
+   ]
+  ],
+  "na": [
+   "Die driedeling is bewust. De finaliteit volgt uit de opdracht. Het mandaat volgt uit de organisatie. De invulling volgt uit de praktijk. Alleen wanneer die drie op elkaar aansluiten, kan een competentiecentrum zijn opdracht waarmaken."
+  ]
+ },
+ {
+  "t": "Kernbeslissing. Wat een competentiecentrum is",
+  "pg": 5,
+  "lead": "Deze nota maakt één definitie richtinggevend voor het hele huis. Zij staat vooraan omdat elke latere afspraak over mandaat, capaciteit en governance ervan afgeleid wordt. Deel 2 verantwoordt haar, deel 3 verklaart waarom een organisatie die verantwoording actief moet organiseren.",
+  "def": "Een competentiecentrum is het collectief dat, dwars over de diensten heen, de expertise van één professioneel domein ontwikkelt, borgt, doorgeeft en herziet, die expertise afstemt met andere professionele domeinen, en binnen en buiten het huis aanspreekbaar is op wat in dat domein als goede praktijk geldt.",
+  "sub": [
+   [
+    "Wat deze beslissing vervangt",
+    "Het ziekenhuis hanteert vanaf nu deze ene definitie. De omschrijving op het intranet vertrekt vanuit een bemanningslogica en wordt buiten gebruik gesteld. De bemanningsopdracht die zij bij de coördinator legde, krijgt een expliciete plaats elders in de organisatie; 1.4 benoemt die plaats."
+   ],
+   [
+    "Wat deze beslissing openlaat",
+    "De definitie bepaalt de aard en de finaliteit van een competentiecentrum. Zij laat vier vragen open: wie lid is, hoe ‘hard’ het mandaat is, hoeveel centra het huis telt, en welk taalregister we voor lidmaatschap kiezen. De beslistafel hierboven maakt zichtbaar wie daarover beslist."
+   ]
+  ]
+ }
 ];
+const POS={1:[493.2,340.1],2:[522,415],3:[493.2,489.9],4:[570,337],5:[570,493],
+ 6:[612.3,278.6],7:[654,415],8:[612.3,551.4],9:[678.5,260],10:[678.5,570],11:[410,725]};
+const BVAN={1:0,2:0,3:0,4:1,5:1,6:2,7:2,8:2,9:3,10:3,11:3};
 
-const bands=[...document.querySelectorAll('.band')];
-function draw(id){
+document.getElementById('nodes').innerHTML=Object.entries(POS).map(([n,p])=>
+ '<g class="node" data-d="'+n+'"><circle cx="'+p[0]+'" cy="'+p[1]+'" r="17" fill="'+WIE[D[n].w][1]+'"/>'
+ +'<text x="'+p[0]+'" y="'+(p[1]+4.5)+'" text-anchor="middle" fill="'+(D[n].w=='nota'?'#14161A':'#fff')+'">'+n+'</text></g>').join('');
+
+const SEL={0:['s0a','s0b'],1:['s1a','s1b'],2:['s2a','s2b'],3:['s3a','s3b']};
+
+function drawVooraf(){
   document.querySelectorAll('.sel').forEach(e=>e.classList.remove('on'));
-  ({'1':['s1'],'2':['s2a','s2b'],'3':['s3a','s3b'],'4':['s4a','s4b'],'5':['s5a','s5b']})[id]
-    .forEach(k=>document.getElementById(k).classList.add('on'));
-  const r=R[id]; const p=document.getElementById('panel');
-  let h='<p class="kick">'+r.n+' &nbsp;·&nbsp; '+r.k+'</p><h2>'+r.t+'</h2><p class="lede">'+r.l+'</p>';
-  r.g.forEach(g=>{
-    h+='<div class="grp"><p class="gh"><span>'+g[0]+'</span><span>'+g[1].length+'</span></p><ul>';
-    g[1].forEach(it=>h+='<li><span class="loc">'+it[0]+'</span><span class="txt">'+it[1]+'</span></li>');
-    h+='</ul></div>';
+  document.querySelectorAll('.node').forEach(n=>n.classList.remove('act'));
+  document.getElementById('sv').classList.add('on');
+  const p=document.getElementById('panel');
+  let h='<p class="kick">Vooraf &nbsp;·&nbsp; p. 4&ndash;5</p><h2>Waar de nota begint</h2>'
+   +'<p class="bsum">Drie stukken gaan aan de vier bewegingen vooraf: het beeld waar iedereen zich in herkent, de leeswijzer met de beslistafel, en de definitie die de rest van de nota draagt.</p>'
+   +'<p class="bsrc"><a href="'+NOTA+'#page=4" target="_blank" rel="noopener">Lees de aanloop in de nota &nbsp;·&nbsp; p.&nbsp;4&ndash;5 &rarr;</a></p>'
+   +'<p class="count">De drie stukken</p>';
+  VOORAF.forEach((v,i)=>{
+    let more='';
+    (v.rest||[]).forEach(t=>{more+='<p class="sp">'+t+'</p>';});
+    if(v.tabel){
+      more+='<table class="dtab"><tbody>'+v.tabel.map(r=>
+        '<tr><td>'+r[0]+'</td><td class="wie"><span class="who"><i style="background:'
+        +WIE[r[1]][1]+'"></i>'+WIE[r[1]][0]+'</span></td></tr>').join('')+'</tbody></table>';
+    }
+    (v.na||[]).forEach(t=>{more+='<p class="sp">'+t+'</p>';});
+    if(v.def){more+='<blockquote class="def">'+v.def+'</blockquote>';}
+    (v.sub||[]).forEach(s=>{more+='<p class="sp"><b>'+s[0]+'.</b> '+s[1]+'</p>';});
+    more+='<p class="open"><a href="'+NOTA+'#page='+v.pg+'" target="_blank" rel="noopener">Open in de nota &nbsp;·&nbsp; p.&nbsp;'+v.pg+' &rarr;</a></p>';
+    h+='<div class="ch" data-k="v'+i+'"><button aria-expanded="false"><span class="cht">'
+      +'<span class="nr">&mdash;</span><span>'+v.t+'</span><span class="pl">+</span></span>'
+      +'<span class="sp">'+v.lead+'</span></button><div class="more">'+more+'</div></div>';
   });
-  h+='<div class="jump">';
-  r.z.forEach(z=>h+='<button data-go="'+z+'"><i style="background:'+C[z]+'"></i>'+R[z].k+'</button>');
-  h+='</div>';
   p.innerHTML=h;
-  p.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>draw(b.dataset.go));
+  p.querySelectorAll('.ch').forEach(el=>{
+    const btn=el.querySelector('button');
+    btn.onclick=()=>{const o=el.classList.toggle('open');
+      btn.setAttribute('aria-expanded',o);el.querySelector('.pl').textContent=o?'–':'+';};
+  });
 }
-bands.forEach(b=>b.onclick=()=>draw(b.dataset.r));
-draw(1);
 
-document.getElementById('docs').innerHTML=DOCS.map(d=>
- '<tr><td><strong style="font-weight:600">'+d[0]+'</strong><div class="m">'+d[1]+'</div></td><td>'+d[2]+'</td><td>'+d[3]+'</td><td><span class="state '+d[5]+'">'+d[4]+'</span></td></tr>').join('');
-document.getElementById('bes').innerHTML=BES.map(b=>
- '<tr><td>'+b[0]+'</td><td>'+b[1]+'</td><td class="m">'+b[2]+'</td><td><span class="state open">'+b[3]+'</span></td></tr>').join('');
+function draw(l, open){
+  document.querySelectorAll('.sel').forEach(e=>e.classList.remove('on'));
+  (SEL[l]||[]).forEach(k=>document.getElementById(k).classList.add('on'));
+  document.querySelectorAll('.node').forEach(n=>n.classList.toggle('act', BVAN[n.dataset.d]==l));
+  const b=B[l], p=document.getElementById('panel');
+  let h='<p class="kick">'+b.rom+' &nbsp;·&nbsp; '+b.delen+'</p><h2>'+b.naam+'</h2>'
+   +'<p class="bsum">'+b.tekst+'</p>'
+   +'<p class="bsrc"><a href="'+NOTA+'#page='+D[b.d[0]].pg+'" target="_blank" rel="noopener">Lees deze beweging in de nota &nbsp;·&nbsp; p.&nbsp;'+D[b.d[0]].pg+'&ndash;'+b.tot+' &rarr;</a></p>'
+   +'<p class="count">De '+(b.d.length===3?'drie':'twee')+' delen</p>';
+  b.d.forEach(k=>{
+    const c=D[k];
+    h+='<div class="ch" data-k="'+k+'"><button aria-expanded="false"><span class="cht"><span class="nr">'+k+'</span><span>'+c.t+'</span><span class="pl">+</span></span>'
+      +'<span class="who"><i style="background:'+WIE[c.w][1]+'"></i>'+WIE[c.w][0]+'</span>'
+      +'<span class="sp"><b>In één zin.</b> '+c.zin+'</span></button>'
+      +'<div class="more">'
+      +'<p class="sp"><b>Waarom dit ertoe doet.</b> '+c.waarom+'</p>'
+      +'<p class="sp"><b>Wat hieruit volgt.</b> '+c.volgt+'</p>'
+      +'<p class="lbl">De opbouw van dit hoofdstuk</p><ul class="subs">'
+      + c.s.map(x=>'<li><a href="'+NOTA+'#page='+x[1]+'" target="_blank" rel="noopener">'+x[0]+'<span class="pp">p.&nbsp;'+x[1]+'</span></a></li>').join('')
+      +'</ul>'
+      +'<p class="open"><a href="'+NOTA+'#page='+c.pg+'" target="_blank" rel="noopener">Open deel '+k+' in de nota &rarr;</a></p>'
+      +'</div></div>';
+  });
+  p.innerHTML=h;
+  p.querySelectorAll('.ch').forEach(el=>{
+    const btn=el.querySelector('button');
+    btn.onclick=()=>{const o=el.classList.toggle('open');
+      btn.setAttribute('aria-expanded',o);el.querySelector('.pl').textContent=o?'–':'+';};
+    if(open&&el.dataset.k==open){el.classList.add('open');
+      btn.setAttribute('aria-expanded','true');el.querySelector('.pl').textContent='–';}
+  });
+}
+document.querySelectorAll('.band').forEach(b=>b.onclick=()=>{
+  if(b.dataset.l==='v'){drawVooraf();}else{draw(b.dataset.l);}});
+document.querySelectorAll('.node').forEach(n=>n.onclick=()=>draw(BVAN[n.dataset.d], n.dataset.d));
+document.querySelector('.loopbtn').onclick=()=>draw(3,'11');
+drawVooraf();
 
-const V={ring:'v-ring',doc:'v-doc',bes:'v-bes'};
+const DENKERS=[
+ [
+  "Jay Galbraith",
+  "welke structuur past bij onze opdracht?",
+  "Galbraith vertrekt van een eenvoudige gedachte: organisaties moeten zo gebouwd worden dat zij de complexiteit van hun opdracht kunnen dragen. Wanneer kwaliteit, expertiseontwikkeling en operationele continuïteit tegelijk belangrijk zijn, ontstaat vanzelf meer dan één legitieme organisatielogica.",
+  "Zijn bijdrage aan deze nota",
+  "de matrix is geen modetrend, maar een antwoord op een complexe opdracht.",
+  56
+ ],
+ [
+  "Melvin E. Conway",
+  "waarom blijft ontwerp soms theorie?",
+  "Conway observeerde dat organisaties systemen bouwen die lijken op hun eigen communicatiestructuur. Ambities die niet zichtbaar worden in overleg, mandaat en besluitvorming, bereiken de praktijk niet.",
+  "Zijn bijdrage aan deze nota",
+  "een horizontale ambitie vraagt een horizontale structuur.",
+  56
+ ],
+ [
+  "James G. March",
+  "waarom hoort spanning erbij?",
+  "March beschrijft de spanning tussen wat vandaag werkt en wat morgen nodig is. Organisaties moeten tegelijk uitvoeren en vernieuwen.",
+  "Zijn bijdrage aan deze nota",
+  "de spanning tussen diensten en competentiecentra is geen fout in het systeem, maar een gevolg van het systeem.",
+  56
+ ],
+ [
+  "Elinor Ostrom",
+  "hoe beheren we gedeelde middelen?",
+  "Tijd, aandacht en expertise zijn gedeelde middelen. Meerdere partijen hebben er een legitieme claim op.",
+  "Haar bijdrage aan deze nota",
+  "zonder expliciete spelregels verschuift de spanning naar individuen. Governance beschermt samenwerking.",
+  57
+ ],
+ [
+  "J. Richard Hackman",
+  "wanneer ontstaat duurzaam engagement?",
+  "Mensen kunnen pas duurzaam verantwoordelijkheid opnemen wanneer hun verantwoordelijkheid en hun beslissingsruimte met elkaar in evenwicht zijn.",
+  "Zijn bijdrage aan deze nota",
+  "resultaatverantwoordelijkheid zonder mandaat blijft afhankelijk van goodwill.",
+  57
+ ],
+ [
+  "Étienne Wenger",
+  "waaraan herken je een levende kennisgemeenschap?",
+  "Wenger kijkt niet in de eerste plaats naar structuur, maar naar wat er tussen mensen gebeurt: welke vragen gesteld worden, welke ervaringen circuleren en welke kennis wordt gedeeld.",
+  "Zijn bijdrage aan deze nota",
+  "een competentiecentrum legitimeert zich via zijn praktijken.",
+  57
+ ],
+ [
+  "Arthur Koestler",
+  "wie ‘draagt’ de opdracht?",
+  "Mensen behoren tegelijk tot verschillende gehelen: een dienst, een discipline, een competentiecentrum en het ziekenhuis als geheel.",
+  "Zijn bijdrage aan deze nota",
+  "lidmaatschap vraagt een vorm die lokale verankering én organisatiebrede verantwoordelijkheid tegelijk mogelijk maakt.",
+  57
+ ],
+ [
+  "Steen Wackerhausen",
+  "waarom ontstaan professionele grenzen?",
+  "Professionals ontwikkelen manieren van kijken, denken en handelen die zo vanzelfsprekend worden dat zij uit beeld verdwijnen.",
+  "Zijn bijdrage aan deze nota",
+  "een competentiecentrum bewaakt niet alleen kennis, maar organiseert ook de ruimte om die kennis kritisch te onderzoeken.",
+  57
+ ],
+ [
+  "Chris Argyris en Donald Schön",
+  "hoe voorkomt een organisatie dat zij haar eigen vanzelfsprekendheden bevestigt?",
+  "Organisaties verbeteren voortdurend hun uitvoering. Veel moeilijker is het om de uitgangspunten achter die uitvoering opnieuw ter discussie te stellen.",
+  "Hun bijdrage aan deze nota",
+  "een competentiecentrum leert niet alleen beter werken, maar onderzoekt ook periodiek of het nog aan de juiste opdracht werkt.",
+  57
+ ]
+];
+document.getElementById('denkers').innerHTML=DENKERS.map(d=>
+ '<article class="card"><h3>'+d[0]+'</h3><p class="cq">'+d[1]+'</p>'
+ +'<p class="sp">'+d[2]+'</p>'
+ +'<p class="sp"><b>'+d[3]+'.</b> '+d[4]+'</p>'+'</article>').join('');
+
+document.getElementById('verb').innerHTML=Object.keys(D).map(k=>
+ '<div class="vb"><span class="n">'+k+'</span><div><p class="sp">'+D[k].volgt+'</p>'
+ +'<span class="who"><i style="background:'+WIE[D[k].w][1]+'"></i>'+B[BVAN[k]].naam
+ +' &nbsp;·&nbsp; deel '+k+' &nbsp;·&nbsp; '+WIE[D[k].w][0]+'</span></div></div>').join('');
+
+const V={ring:'v-ring',denk:'v-denk',verb:'v-verb'};
 document.querySelectorAll('nav button').forEach(t=>t.onclick=()=>{
-  document.querySelectorAll('nav button').forEach(x=>x.setAttribute('aria-current', x===t?'true':'false'));
+  document.querySelectorAll('nav button').forEach(x=>x.setAttribute('aria-current',x===t?'true':'false'));
   Object.entries(V).forEach(([k,id])=>document.getElementById(id).classList.toggle('hidden',k!==t.dataset.v));
 });
 </script>
